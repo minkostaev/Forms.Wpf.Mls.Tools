@@ -1,32 +1,32 @@
-# Prerequisites
-*.d
+# Visual Studio files
+.vs/
+/bin/
+/obj/
+/*.user
+/*.suo
+/*.cache
+/*.pdb
+/*.dll
+/*.exe
+/*.log
+/*.bin
+/*.DS_Store
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Windows Forms Designer files
+*.vsd
+*.vsdx
+*.sln.docstates
 
-# Precompiled Headers
-*.gch
-*.pch
+# WPF Designer files
+*.xaml.cs
+*.xaml.bin
+*.xaml.g.cs
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# NuGet packages
+/packages/
+*.nupkg
+*.paket.references
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Build results
+*.build.csproj
+*.build.csproj.user
