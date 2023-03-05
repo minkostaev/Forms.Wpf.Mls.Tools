@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Test.Helper", "Wpf.Test.Helper\Wpf.Test.Helper.csproj", "{BA9C6E47-A6EE-4C29-8928-B94D65FDD495}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms.Wpf.Mls.Tools", "Forms.Wpf.Mls.Tools\Forms.Wpf.Mls.Tools.csproj", "{BBC566F0-9194-429A-9E5A-8BEAFF020F8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA9C6E47-A6EE-4C29-8928-B94D65FDD495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9C6E47-A6EE-4C29-8928-B94D65FDD495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9C6E47-A6EE-4C29-8928-B94D65FDD495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9C6E47-A6EE-4C29-8928-B94D65FDD495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC566F0-9194-429A-9E5A-8BEAFF020F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC566F0-9194-429A-9E5A-8BEAFF020F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC566F0-9194-429A-9E5A-8BEAFF020F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC566F0-9194-429A-9E5A-8BEAFF020F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EFEF9F4-3C68-4C22-9DBB-AD50E6D4D4E8}
+	EndGlobalSection
+EndGlobal

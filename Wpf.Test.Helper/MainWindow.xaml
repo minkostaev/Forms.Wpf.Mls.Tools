@@ -1,0 +1,20 @@
+﻿<Window x:Class="Wpf.Test.Helper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.Test.Helper" mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="500">
+    <Grid>
+        <Button x:Name="btnStartupSystem" Content="Open Startup System" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <Button x:Name="btnStartupUser" Content="Open Startup User" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="120"/>
+        <TextBox x:Name="tbStartSystem" Margin="135,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" IsReadOnly="True" />
+        <TextBox x:Name="tbStartUser" Margin="135,35,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" IsReadOnly="True" />
+        <TextBox x:Name="tbUser" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" IsReadOnly="True" HorizontalAlignment="Left" Width="120" />
+        <TextBox x:Name="tbLocal" Margin="135,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" IsReadOnly="True" />
+        <CheckBox x:Name="chBxSystemTray" Content="Show System Tray Icon" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chBxAlwaysOnTop" Content="Always On Top" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chBxShowInTaskbar" Content="Show In Taskbar" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
+        
+    </Grid>
+</Window>

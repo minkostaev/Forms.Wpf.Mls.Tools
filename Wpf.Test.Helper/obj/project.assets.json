@@ -1,0 +1,102 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "Forms.Wpf.Mls.Tools/1.0.1-2023-03-05": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Forms.Wpf.Mls.Tools.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Forms.Wpf.Mls.Tools.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "Forms.Wpf.Mls.Tools/1.0.1-2023-03-05": {
+      "type": "project",
+      "path": "../Forms.Wpf.Mls.Tools/Forms.Wpf.Mls.Tools.csproj",
+      "msbuildProject": "../Forms.Wpf.Mls.Tools/Forms.Wpf.Mls.Tools.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "Forms.Wpf.Mls.Tools >= 1.0.1-2023-03-05"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\shefa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\GitHub\\Forms.Wpf.Mls.Tools\\Wpf.Test.Helper\\Wpf.Test.Helper.csproj",
+      "projectName": "Wpf.Test.Helper",
+      "projectPath": "E:\\GitHub\\Forms.Wpf.Mls.Tools\\Wpf.Test.Helper\\Wpf.Test.Helper.csproj",
+      "packagesPath": "C:\\Users\\shefa\\.nuget\\packages\\",
+      "outputPath": "E:\\GitHub\\Forms.Wpf.Mls.Tools\\Wpf.Test.Helper\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\shefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {
+            "E:\\GitHub\\Forms.Wpf.Mls.Tools\\Forms.Wpf.Mls.Tools\\Forms.Wpf.Mls.Tools.csproj": {
+              "projectPath": "E:\\GitHub\\Forms.Wpf.Mls.Tools\\Forms.Wpf.Mls.Tools\\Forms.Wpf.Mls.Tools.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
