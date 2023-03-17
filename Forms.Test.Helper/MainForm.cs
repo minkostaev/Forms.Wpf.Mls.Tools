@@ -1,3 +1,4 @@
+using Forms.Test.Helper.Controls;
 using Forms.Wpf.Mls.Tools.Services;
 
 namespace Forms.Test.Helper;
@@ -14,6 +15,14 @@ public partial class MainForm : Form
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();
 
+        var windows = new Windows(this);
+        windows.Dock = DockStyle.Fill;
+        tbPgWindows.Controls.Add(windows);
+
+        var folders = new Folders();
+        folders.Dock = DockStyle.Fill;
+        tbPgFolders.Controls.Add(folders);
+
         //#region Special Folders
         //tbStartSystem.Text = SpecialFolders.StartupSystem;
         //tbStartUser.Text = SpecialFolders.StartupUser;
@@ -24,7 +33,7 @@ public partial class MainForm : Form
         //btnStartupSystem.Click += delegate { Process.Start("explorer.exe", tbStartSystem.Text); };
         //btnStartupUser.Click += delegate { Process.Start("explorer.exe", tbStartUser.Text); };
         //#endregion
-
+        
         //#region System Tray
         ////var SystemIcon = new SystemTray(this);
         ////chBxSystemTray.IsChecked = true;

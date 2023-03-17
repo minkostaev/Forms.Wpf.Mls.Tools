@@ -18,8 +18,8 @@ public static class AssemblyProperties
     /// </summary>
     public static Icon? AssemblyIcon => 
         (AssemblyEntry != null) ? Icon.ExtractAssociatedIcon(AssemblyEntry.Location) : null;
-    
 
+    
 
     public static string? AppVersion => AssemblyEntry?.GetName()?.Version?.ToString();
     public static string? DllVersion => AssemblyExecuting?.GetName()?.Version?.ToString();

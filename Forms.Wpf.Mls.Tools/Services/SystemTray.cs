@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Forms.Wpf.Mls.Tools.Services;
 
@@ -9,7 +8,6 @@ public class SystemTray
 {
     public SystemTray(Window window)
     {
-        Window = window;
         SystemIcon = new NotifyIcon();
 
         #region Default Context Menu
@@ -27,18 +25,78 @@ public class SystemTray
         SystemIcon.Visible = true;
         SystemIcon.Icon = AssemblyProperties.AssemblyIcon;
         SystemIcon.Text = AssemblyProperties.AssemblyName;
-        SystemIcon.MouseDown += SystemIcon_MouseDown;
+        SystemIcon.MouseDown += (s, e) =>
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (window.Visibility == System.Windows.Visibility.Visible)
+                {
+                    window.Hide();
+                }
+                else
+                {
+                    window.Show();
+                    window.Activate();
+                }
+            }
+        };
 
-        Window.Closing += Window_Closing;
+        window.Closing += (s, e) =>
+        {
+            if (SystemIcon.Visible)
+            {
+                e.Cancel = true;
+                window.Hide();
+            }
+        };
     }
-    // to do form
-    //public SystemTray(Form form)
-    //{
-    //}
+    public SystemTray(Form form)
+    {
+        SystemIcon = new NotifyIcon();
+
+        #region Default Context Menu
+        var contextMenuDefault = new ContextMenuStrip();
+        var mnItmExit = new ToolStripMenuItem("Exit");
+        mnItmExit.Click += delegate
+        {
+            SystemIcon.Visible = false;
+            form.Close();
+        };
+        contextMenuDefault.Items.Add(mnItmExit);
+        #endregion
+
+        SystemIcon.ContextMenuStrip = contextMenuDefault;
+        SystemIcon.Visible = true;
+        SystemIcon.Icon = AssemblyProperties.AssemblyIcon;
+        SystemIcon.Text = AssemblyProperties.AssemblyName;
+        SystemIcon.MouseDown += (s, e) =>
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (form.Visible)
+                {
+                    form.Hide();
+                }
+                else
+                {
+                    form.Show();
+                    form.Activate();
+                }
+            }
+        };
+
+        form.FormClosing += (s, e) =>
+        {
+            if (SystemIcon.Visible)
+            {
+                e.Cancel = true;
+                form.Hide();
+            }
+        };
+    }
 
     // 
     private NotifyIcon SystemIcon { get; set; }
-    private Window Window { get; set; }
 
     /// <summary>
     /// Icon showing in the taskbar tray
@@ -94,32 +152,6 @@ public class SystemTray
         set
         {
             SystemIcon.ContextMenuStrip = value;
-        }
-    }
-
-    // 
-    private void Window_Closing(object? sender, CancelEventArgs e)
-    {
-        if (SystemIcon.Visible)
-        {
-            e.Cancel = true;
-            Window.Hide();
-        }
-    }
-
-    private void SystemIcon_MouseDown(object? sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            if (Window.Visibility == System.Windows.Visibility.Visible)
-            {
-                Window.Hide();
-            }
-            else
-            {
-                Window.Show();
-                Window.Activate();
-            }
         }
     }
 

@@ -28,18 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            tabControl1 = new TabControl();
+            tbPgFolders = new TabPage();
+            tbPgWindows = new TabPage();
+            tabControl1.SuspendLayout();
             SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tbPgFolders);
+            tabControl1.Controls.Add(tbPgWindows);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(800, 450);
+            tabControl1.TabIndex = 0;
+            // 
+            // tbPgFolders
+            // 
+            tbPgFolders.Location = new Point(4, 24);
+            tbPgFolders.Name = "tbPgFolders";
+            tbPgFolders.Padding = new Padding(3);
+            tbPgFolders.Size = new Size(792, 422);
+            tbPgFolders.TabIndex = 0;
+            tbPgFolders.Text = "Folders";
+            tbPgFolders.UseVisualStyleBackColor = true;
+            // 
+            // tbPgWindows
+            // 
+            tbPgWindows.Location = new Point(4, 24);
+            tbPgWindows.Name = "tbPgWindows";
+            tbPgWindows.Padding = new Padding(3);
+            tbPgWindows.Size = new Size(792, 422);
+            tbPgWindows.TabIndex = 1;
+            tbPgWindows.Text = "Windows";
+            tbPgWindows.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(tabControl1);
             Name = "MainForm";
             Text = "MainForm";
+            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
+        private TabControl tabControl1;
+        private TabPage tbPgFolders;
+        private TabPage tbPgWindows;
     }
 }
