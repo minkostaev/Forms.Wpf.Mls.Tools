@@ -14,13 +14,7 @@ public static class SizePositioning
     public static void AssignWindow(Window window, ImageSource? resetIcon = null)
     {
         string windowName = window.GetType().Name;
-
-        string dir = Path.Combine(SpecialFolders.LocalAppData, AssemblyProperties.AssemblyName);
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        string path = Path.Combine(dir, windowName + ".json");
+        string path = JsonPath(windowName);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -78,13 +72,7 @@ public static class SizePositioning
     {
         form.StartPosition = FormStartPosition.Manual;//important
         string formName = form.GetType().Name;
-
-        string dir = Path.Combine(SpecialFolders.LocalAppData, AssemblyProperties.AssemblyName);
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        string path = Path.Combine(dir, formName + ".json");
+        string path = JsonPath(formName);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -105,7 +93,18 @@ public static class SizePositioning
             ObjectToJsonFile(obj, path);
         };
         #endregion
+        
+    }
 
+    private static string JsonPath(string name)
+    {
+        string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
+        string dir = Path.Combine(SpecialFolders.LocalAppData, appNmae);
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+        return Path.Combine(dir, name + ".json");
     }
 
     private static PositionSize JsonFileToObject(string? filePath)
