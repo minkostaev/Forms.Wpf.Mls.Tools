@@ -21,7 +21,7 @@ public partial class MainWindow : Window
         string[] args = Environment.GetCommandLineArgs();
 
         grdFolders.Children.Add(new Folders());
-        //grdWindows.Children.Add(new Windows(this));
+        grdWindows.Children.Add(new Windows(this));
 
     }
 

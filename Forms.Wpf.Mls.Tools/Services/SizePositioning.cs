@@ -1,11 +1,11 @@
-﻿using System.IO;
+﻿using Forms.Wpf.Mls.Tools.Models;
+using System.IO;
 using System.Text.Json;
-using System.Windows.Interop;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Windows.Shell;
 using System.Windows;
-using Forms.Wpf.Mls.Tools.Models;
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shell;
 
 namespace Forms.Wpf.Mls.Tools.Services;
 
@@ -106,7 +106,20 @@ public static class SizePositioning
         }
         return Path.Combine(dir, name + ".json");
     }
-
+    
+    private static bool ObjectToJsonFile(PositionSize positionSize, string filePath)
+    {
+        try
+        {
+            string jsonString = JsonSerializer.Serialize(positionSize, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            File.WriteAllText(filePath, jsonString);
+            return true;
+        }
+        catch (Exception) { return false; }
+    }
     private static PositionSize JsonFileToObject(string? filePath)
     {
         var defaultResult = new PositionSize()
@@ -127,19 +140,6 @@ public static class SizePositioning
             return result;
         }
         catch (Exception) { return defaultResult; }
-    }
-    private static bool ObjectToJsonFile(PositionSize positionSize, string filePath)
-    {
-        try
-        {
-            string jsonString = JsonSerializer.Serialize(positionSize, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-            File.WriteAllText(filePath, jsonString);
-            return true;
-        }
-        catch (Exception) { return false; }
     }
 
 }
