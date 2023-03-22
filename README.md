@@ -1,5 +1,7 @@
 # Forms.Wpf.Mls.Tools
 
+[![NuGet version (Forms.Wpf.Mls.Tools)](https://img.shields.io/nuget/v/Forms.Wpf.Mls.Tools.svg?style=flat-square)](https://www.nuget.org/packages/Forms.Wpf.Mls.Tools/)
+
 This library will help your Windows Forms and WPF apps.
 
 It contains controls and tools.

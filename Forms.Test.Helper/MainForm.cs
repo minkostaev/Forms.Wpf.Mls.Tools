@@ -12,6 +12,12 @@ public partial class MainForm : Form
         // Save-Load Windows Size and Position
         SizePositioning.AssignForm(this);
 
+        // Escape closes window
+        //var escapeCloses = new EscapeCloses(this);
+        //escapeCloses.AskConfirmation = true;
+        //escapeCloses.AskMessage = "aaaa";
+        //escapeCloses.AskCaption = "bbbb";
+
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();
 
@@ -22,6 +28,8 @@ public partial class MainForm : Form
         var folders = new Folders();
         folders.Dock = DockStyle.Fill;
         tbPgFolders.Controls.Add(folders);
+
+
 
     }
 
