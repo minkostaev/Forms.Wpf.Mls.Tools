@@ -1,6 +1,6 @@
-﻿using System.Reflection;
+﻿namespace Forms.Wpf.Mls.Tools.Services;
 
-namespace Forms.Wpf.Mls.Tools.Services;
+using System.Reflection;
 
 public static class AssemblyProperties
 {
@@ -25,3 +25,4 @@ public static class AssemblyProperties
     public static string? DllVersion => AssemblyExecuting?.GetName()?.Version?.ToString();
 
 }
+// to do add more properties

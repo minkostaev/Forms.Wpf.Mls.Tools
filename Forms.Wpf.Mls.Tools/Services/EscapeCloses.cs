@@ -76,3 +76,4 @@ public class EscapeCloses
     // it does't use Closing event because will conflict with SystemTray logic
 
 }
+// to do improve

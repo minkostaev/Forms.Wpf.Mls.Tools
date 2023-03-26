@@ -1,9 +1,9 @@
-﻿using IWshRuntimeLibrary;
+﻿namespace Forms.Wpf.Mls.Tools.Services;
+
+// added reference from COM tab - Windows Script Host Object Model
+using IWshRuntimeLibrary;
 using System.Diagnostics;
 using System.IO;
-
-// add reference from COM tab - Windows Script Host Object Model
-namespace Forms.Wpf.Mls.Tools.Services;
 
 public static class Shortcuts
 {
@@ -47,3 +47,4 @@ public static class Shortcuts
     #endregion
 
 }
+// to do maybe move Startup Shortcut to new service

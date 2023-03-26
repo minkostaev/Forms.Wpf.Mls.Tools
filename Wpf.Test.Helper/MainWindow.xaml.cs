@@ -1,14 +1,10 @@
-﻿using Forms.Wpf.Mls.Tools.Services;
+﻿namespace Wpf.Test.Helper;
+
+using Forms.Wpf.Mls.Tools.Services;
 using System;
 using System.Windows;
-using System.Windows.Input;
 using Wpf.Test.Helper.Controls;
 
-namespace Wpf.Test.Helper;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
@@ -28,7 +24,6 @@ public partial class MainWindow : Window
         grdFolders.Children.Add(new Folders());
         grdWindows.Children.Add(new Windows(this));
 
-        //this.PreviewKeyDown += (s, e) => { if (e.Key == Key.Escape) Close(); };
 
     }
 

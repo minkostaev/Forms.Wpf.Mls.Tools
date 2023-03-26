@@ -1,4 +1,6 @@
-﻿using Forms.Wpf.Mls.Tools.Models;
+﻿namespace Forms.Wpf.Mls.Tools.Services;
+
+using Forms.Wpf.Mls.Tools.Models;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
@@ -7,10 +9,35 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shell;
 
-namespace Forms.Wpf.Mls.Tools.Services;
-
 public static class SizePositioning
 {
+    public static void AssignForm(Form form)
+    {
+        form.StartPosition = FormStartPosition.Manual;//important
+        string formName = form.GetType().Name;
+        string path = JsonPath(formName);
+
+        #region Load file and apply to Window
+        var obj = JsonFileToObject(path);
+        form.Location = new System.Drawing.Point((int)obj.Left, (int)obj.Top);
+        form.Size = new System.Drawing.Size((int)obj.Width, (int)obj.Height);
+        #endregion
+
+        #region Save file from Window parameters
+        form.Closed += delegate
+        {
+            var obj = new PositionSize()
+            {
+                Left = form.Location.X,
+                Top = form.Location.Y,
+                Width = form.Size.Width,
+                Height = form.Size.Height
+            };
+            ObjectToJsonFile(obj, path);
+        };
+        #endregion
+
+    }
     public static void AssignWindow(Window window, ImageSource? resetIcon = null)
     {
         string windowName = window.GetType().Name;
@@ -68,35 +95,8 @@ public static class SizePositioning
         #endregion
 
     }
-    public static void AssignForm(Form form)
-    {
-        form.StartPosition = FormStartPosition.Manual;//important
-        string formName = form.GetType().Name;
-        string path = JsonPath(formName);
 
-        #region Load file and apply to Window
-        var obj = JsonFileToObject(path);
-        form.Location = new System.Drawing.Point((int)obj.Left, (int)obj.Top);
-        form.Size = new System.Drawing.Size((int)obj.Width, (int)obj.Height);
-        #endregion
-
-        #region Save file from Window parameters
-        form.Closed += delegate
-        {
-            var obj = new PositionSize()
-            {
-                Left = form.Location.X,
-                Top = form.Location.Y,
-                Width = form.Size.Width,
-                Height = form.Size.Height
-            };
-            ObjectToJsonFile(obj, path);
-        };
-        #endregion
-        
-    }
-
-    private static string JsonPath(string name)
+    private static string JsonPath(string fileName)
     {
         string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
         string dir = Path.Combine(SpecialFolders.LocalAppData, appNmae);
@@ -104,7 +104,7 @@ public static class SizePositioning
         {
             Directory.CreateDirectory(dir);
         }
-        return Path.Combine(dir, name + ".json");
+        return Path.Combine(dir, fileName + ".json");
     }
     
     private static bool ObjectToJsonFile(PositionSize positionSize, string filePath)
@@ -143,3 +143,4 @@ public static class SizePositioning
     }
 
 }
+// to do  add option for user to pass location

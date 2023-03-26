@@ -1,8 +1,7 @@
-﻿using System.Windows;
+﻿namespace Forms.Wpf.Mls.Tools.Services;
 
-namespace Forms.Wpf.Mls.Tools.Services;
+using System.Windows;
 
-// This is my NotifyIcon for WPF
 // You'll need to add <UseWindowsForms>true</UseWindowsForms> to your project file
 public class SystemTray
 {
@@ -156,3 +155,4 @@ public class SystemTray
     }
 
 }
+// to do move to Controls 
