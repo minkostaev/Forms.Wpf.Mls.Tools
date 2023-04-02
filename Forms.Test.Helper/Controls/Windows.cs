@@ -1,6 +1,6 @@
-﻿using Forms.Wpf.Mls.Tools.Services;
+﻿namespace Forms.Test.Helper.Controls;
 
-namespace Forms.Test.Helper.Controls;
+using Forms.Wpf.Mls.Tools.Services;
 
 public partial class Windows : UserControl
 {
@@ -10,7 +10,7 @@ public partial class Windows : UserControl
 
         // System Tray
         chBxSystemTray.Checked = true;
-        var SystemIcon = new SystemTray(form);
+        var SystemIcon = new SystemTray(form, false, false);
         chBxSystemTray.CheckedChanged += delegate { SystemIcon.Visibility = chBxSystemTray.Checked; };
 
         // Always On Top
@@ -35,6 +35,19 @@ public partial class Windows : UserControl
         };
 
 
+        SystemIcon.ClickOnNotification += delegate
+        {
+            System.Windows.Forms.MessageBox.Show("lalala");
+        };
+        button1.Click += delegate
+        {
+            SystemIcon.ShowNotification(1000, "title", "text", ToolTipIcon.Info);
+        };
+
+
+
+
     }
+
 
 }

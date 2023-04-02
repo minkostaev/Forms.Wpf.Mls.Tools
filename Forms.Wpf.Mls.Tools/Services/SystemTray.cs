@@ -1,101 +1,159 @@
 ﻿namespace Forms.Wpf.Mls.Tools.Services;
 
+using System.Drawing;
 using System.Windows;
+using System.Windows.Forms;
 
 // You'll need to add <UseWindowsForms>true</UseWindowsForms> to your project file
-public class SystemTray
+public class SystemTray//NotifyIcon
 {
-    public SystemTray(Window window)
+    public SystemTray(Form form, bool useDefaultClickEvents = true, bool onClosingHideForm = true)
     {
-        SystemIcon = new NotifyIcon();
-
-        #region Default Context Menu
-        var contextMenuDefault = new ContextMenuStrip();
-        var mnItmExit = new ToolStripMenuItem("Exit");
-        mnItmExit.Click += delegate
+        systemIcon = new NotifyIcon
         {
-            SystemIcon.Visible = false;
-            window.Close();
+            Icon = AssemblyProperties.AssemblyIcon,
+            Text = AssemblyProperties.AssemblyName,
+            Visible = true,
+            ContextMenuStrip = DefaultContextMenu(form),
         };
-        contextMenuDefault.Items.Add(mnItmExit);
-        #endregion
 
-        SystemIcon.ContextMenuStrip = contextMenuDefault;
-        SystemIcon.Visible = true;
-        SystemIcon.Icon = AssemblyProperties.AssemblyIcon;
-        SystemIcon.Text = AssemblyProperties.AssemblyName;
-        SystemIcon.MouseDown += (s, e) =>
+        if (useDefaultClickEvents)
+            InitEventsHelpfulOptionalEvents(form);
+
+        InitEvents();
+        
+        if (onClosingHideForm)
         {
-            if (e.Button == MouseButtons.Left)
+            form.FormClosing += (s, e) =>
             {
-                if (window.Visibility == System.Windows.Visibility.Visible)
+                if (systemIcon.Visible)
                 {
-                    window.Hide();
-                }
-                else
-                {
-                    window.Show();
-                    window.Activate();
-                }
-            }
-        };
-
-        window.Closing += (s, e) =>
-        {
-            if (SystemIcon.Visible)
-            {
-                e.Cancel = true;
-                window.Hide();
-            }
-        };
-    }
-    public SystemTray(Form form)
-    {
-        SystemIcon = new NotifyIcon();
-
-        #region Default Context Menu
-        var contextMenuDefault = new ContextMenuStrip();
-        var mnItmExit = new ToolStripMenuItem("Exit");
-        mnItmExit.Click += delegate
-        {
-            SystemIcon.Visible = false;
-            form.Close();
-        };
-        contextMenuDefault.Items.Add(mnItmExit);
-        #endregion
-
-        SystemIcon.ContextMenuStrip = contextMenuDefault;
-        SystemIcon.Visible = true;
-        SystemIcon.Icon = AssemblyProperties.AssemblyIcon;
-        SystemIcon.Text = AssemblyProperties.AssemblyName;
-        SystemIcon.MouseDown += (s, e) =>
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (form.Visible)
-                {
+                    e.Cancel = true;
                     form.Hide();
                 }
-                else
-                {
-                    form.Show();
-                    form.Activate();
-                }
-            }
+            };
+        }
+    }
+    public SystemTray(Window window, bool useDefaultClickEvents = true, bool onClosingHideForm = true)
+    {
+        systemIcon = new NotifyIcon
+        {
+            Icon = AssemblyProperties.AssemblyIcon,
+            Text = AssemblyProperties.AssemblyName,
+            Visible = true,
+            ContextMenuStrip = DefaultContextMenu(window),
         };
 
-        form.FormClosing += (s, e) =>
+        if (useDefaultClickEvents)
+            InitEventsHelpfulOptionalEvents(window);
+
+        InitEvents();
+
+        if (onClosingHideForm)
         {
-            if (SystemIcon.Visible)
+            window.Closing += (s, e) =>
             {
-                e.Cancel = true;
-                form.Hide();
-            }
-        };
+                if (systemIcon.Visible)
+                {
+                    e.Cancel = true;
+                    window.Hide();
+                }
+            };
+        }
     }
 
     // 
-    private NotifyIcon SystemIcon { get; set; }
+    private NotifyIcon systemIcon { get; set; }
+    private bool iconStateBeforeNotification { get; set; }
+    private ContextMenuStrip DefaultContextMenu(object windowOrForm)
+    {
+        Window? window = null;
+        Form? form = null;
+        if (windowOrForm is Window)
+            window = windowOrForm as Window;
+        if (windowOrForm is Form)
+            form = windowOrForm as Form;
+
+        var contextMenuDefault = new ContextMenuStrip();
+
+        var mnItmTip = new ToolStripMenuItem("Notification");
+        mnItmTip.Click += delegate
+        {
+            ShowNotification("Notification text!", "Notification Title", ToolTipIcon.Info);
+        };
+        contextMenuDefault.Items.Add(mnItmTip);
+
+        var separator1 = new ToolStripSeparator();
+        contextMenuDefault.Items.Add(separator1);
+
+        var mnItmExit = new ToolStripMenuItem("Exit");
+        mnItmExit.Click += delegate
+        {
+            systemIcon.Visible = false;
+            window?.Close();
+            form?.Close();
+        };
+        contextMenuDefault.Items.Add(mnItmExit);
+
+        return contextMenuDefault;
+    }
+    private void InitEventsHelpfulOptionalEvents(object windowOrForm)
+    {
+        Window? window = null;
+        Form? form = null;
+        if (windowOrForm is Window)
+            window = windowOrForm as Window;
+        if (windowOrForm is Form)
+            form = windowOrForm as Form;
+
+        systemIcon.MouseDown += (s, e) =>
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                bool visible = false;
+                if (form != null)
+                    visible = form.Visible;
+                if (window != null)
+                    visible = window.Visibility == System.Windows.Visibility.Visible;
+                if (visible)
+                {
+                    form?.Hide();
+                    window?.Hide();
+                }
+                else
+                {
+                    form?.Show();
+                    form?.Activate();
+                    window?.Show();
+                    window?.Activate();
+                }
+            }
+        };
+        systemIcon.BalloonTipClicked += delegate
+        {
+            systemIcon.Visible = iconStateBeforeNotification;
+            form?.Show();
+            form?.Activate();
+            window?.Show();
+            window?.Activate();
+        };
+    }
+    private void InitEvents()
+    {
+        systemIcon.MouseDown += (s, e) =>
+        {
+            ClickOnIcon?.Invoke(s, e);
+        };
+        systemIcon.BalloonTipClicked += delegate
+        {
+            systemIcon.Visible = iconStateBeforeNotification;
+            ClickOnNotification?.Invoke(this, EventArgs.Empty);
+        };
+        systemIcon.BalloonTipClosed += delegate
+        {
+            systemIcon.Visible = iconStateBeforeNotification;
+        };
+    }
 
     /// <summary>
     /// Icon showing in the taskbar tray
@@ -104,11 +162,11 @@ public class SystemTray
     {
         get
         {
-            return SystemIcon.Visible;
+            return systemIcon.Visible;
         }
         set
         {
-            SystemIcon.Visible = value;
+            systemIcon.Visible = value;
         }
     }
     /// <summary>
@@ -118,11 +176,11 @@ public class SystemTray
     {
         get
         {
-            return SystemIcon.Icon;
+            return systemIcon.Icon;
         }
         set
         {
-            SystemIcon.Icon = value;
+            systemIcon.Icon = value;
         }
     }
     /// <summary>
@@ -132,11 +190,11 @@ public class SystemTray
     {
         get
         {
-            return SystemIcon.Text;
+            return systemIcon.Text;
         }
         set
         {
-            SystemIcon.Text = value;
+            systemIcon.Text = value;
         }
     }
     /// <summary>
@@ -146,13 +204,36 @@ public class SystemTray
     {
         get
         {
-            return SystemIcon.ContextMenuStrip;
+            return systemIcon.ContextMenuStrip;
         }
         set
         {
-            SystemIcon.ContextMenuStrip = value;
+            systemIcon.ContextMenuStrip = value;
         }
     }
+
+    /// <summary>
+    /// Display Windows notification
+    /// </summary>
+    /// <param name="tipText">Text (main content)</param>
+    /// <param name="tipTitle">Title in bold text above the text</param>
+    /// <param name="tipIcon">Icon displayed infront of the text</param>
+    /// <param name="timeout">Time period</param>
+    public void ShowNotification(string tipText,
+        string tipTitle = "", ToolTipIcon tipIcon = ToolTipIcon.None, int timeout = 1000)
+    {
+        if (string.IsNullOrEmpty(tipText))
+        {
+            tipText = " ";
+        }
+        iconStateBeforeNotification = systemIcon.Visible;
+        systemIcon.Visible = true;
+        systemIcon.ShowBalloonTip(timeout, tipTitle, tipText, tipIcon);
+    }
+
+    public event EventHandler? ClickOnNotification;
+    public event MouseEventHandler? ClickOnIcon;
+
 
 }
 // to do move to Controls 

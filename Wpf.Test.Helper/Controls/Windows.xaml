@@ -10,5 +10,6 @@
         <CheckBox x:Name="chBxAlwaysOnTop" Content="Always On Top" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chBxShowInTaskbar" Content="Show In Taskbar" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chBxWindowsStartup" Content="Launch on Windows startup" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTemp" Content="Button" HorizontalAlignment="Left" Margin="108,150,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
