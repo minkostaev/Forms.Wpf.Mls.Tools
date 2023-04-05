@@ -1,6 +1,7 @@
 ﻿namespace Forms.Wpf.Mls.Tools.Services;
 
 using Forms.Wpf.Mls.Tools.Models;
+using System;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
@@ -8,14 +9,16 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shell;
+using static Forms.Wpf.Mls.Tools.Models.PositionSize;
 
 public static class SizePositioning
 {
-    public static void AssignForm(Form form)
+    public static void AssignForm(Form form,
+        WindowsLocation location = WindowsLocation.LocalData)
     {
         form.StartPosition = FormStartPosition.Manual;//important
         string formName = form.GetType().Name;
-        string path = JsonPath(formName);
+        string path = JsonPath(formName, location);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -38,10 +41,11 @@ public static class SizePositioning
         #endregion
 
     }
-    public static void AssignWindow(Window window, ImageSource? resetIcon = null)
+    public static void AssignWindow(Window window,
+        WindowsLocation location = WindowsLocation.LocalData, ImageSource? resetIcon = null)
     {
         string windowName = window.GetType().Name;
-        string path = JsonPath(windowName);
+        string path = JsonPath(windowName, location);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -96,7 +100,7 @@ public static class SizePositioning
 
     }
 
-    private static string JsonPath(string fileName)
+    private static string JsonPath(string fileName, WindowsLocation location)
     {
         string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
         string dir = Path.Combine(SpecialFolders.LocalAppData, appNmae);
@@ -106,7 +110,7 @@ public static class SizePositioning
         }
         return Path.Combine(dir, fileName + ".json");
     }
-    
+
     private static bool ObjectToJsonFile(PositionSize positionSize, string filePath)
     {
         try

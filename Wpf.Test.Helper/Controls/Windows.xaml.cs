@@ -17,6 +17,10 @@ public partial class Windows : UserControl
         chBxSystemTray.IsChecked = true;
         chBxSystemTray.Checked += delegate { systemIcon.Visibility = true; };
         chBxSystemTray.Unchecked += delegate { systemIcon.Visibility = false; };
+        btnNotification.Click += delegate
+        {
+            systemIcon.ShowNotification("");
+        };
         #endregion
         
         #region Always On Top
@@ -34,11 +38,6 @@ public partial class Windows : UserControl
         chBxWindowsStartup.IsChecked = Shortcuts.IsAppInpStartup;
         chBxWindowsStartup.Checked += delegate { Shortcuts.AddAppStartupShortcut(); };
         chBxWindowsStartup.Unchecked += delegate { Shortcuts.RemoveAppStartupShortcut(); };
-
-        btnTemp.Click += delegate
-        {
-            systemIcon.ShowNotification("");
-        };
 
     }
 

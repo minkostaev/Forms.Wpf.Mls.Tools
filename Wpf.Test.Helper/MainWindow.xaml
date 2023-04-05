@@ -13,6 +13,9 @@
             <TabItem Header="Windows">
                 <Grid x:Name="grdWindows"/>
             </TabItem>
+            <TabItem Header="Tree">
+                <Grid x:Name="grdTree"/>
+            </TabItem>
         </TabControl>
         
     </Grid>

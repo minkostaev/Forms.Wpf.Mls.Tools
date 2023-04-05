@@ -32,7 +32,7 @@
             chBxAlwaysOnTop = new CheckBox();
             chBxShowInTaskbar = new CheckBox();
             chBxWindowsStartup = new CheckBox();
-            button1 = new Button();
+            btnNotification = new Button();
             SuspendLayout();
             // 
             // chBxSystemTray
@@ -75,20 +75,20 @@
             chBxWindowsStartup.Text = "Launch on Windows startup";
             chBxWindowsStartup.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnNotification
             // 
-            button1.Location = new Point(59, 139);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnNotification.Location = new Point(183, 0);
+            btnNotification.Name = "btnNotification";
+            btnNotification.Size = new Size(120, 23);
+            btnNotification.TabIndex = 4;
+            btnNotification.Text = "Show Notification";
+            btnNotification.UseVisualStyleBackColor = true;
             // 
             // Windows
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(btnNotification);
             Controls.Add(chBxWindowsStartup);
             Controls.Add(chBxShowInTaskbar);
             Controls.Add(chBxAlwaysOnTop);
@@ -105,6 +105,6 @@
         private CheckBox chBxAlwaysOnTop;
         private CheckBox chBxShowInTaskbar;
         private CheckBox chBxWindowsStartup;
-        private Button button1;
+        private Button btnNotification;
     }
 }

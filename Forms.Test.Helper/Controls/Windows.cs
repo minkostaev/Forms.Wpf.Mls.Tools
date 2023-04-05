@@ -12,6 +12,14 @@ public partial class Windows : UserControl
         chBxSystemTray.Checked = true;
         var SystemIcon = new SystemTray(form, false, false);
         chBxSystemTray.CheckedChanged += delegate { SystemIcon.Visibility = chBxSystemTray.Checked; };
+        btnNotification.Click += delegate
+        {
+            SystemIcon.ShowNotification("");
+        };
+        SystemIcon.ClickOnNotification += delegate
+        {
+            MessageBox.Show("lalala");
+        };
 
         // Always On Top
         chBxAlwaysOnTop.CheckedChanged += delegate { form.TopMost = chBxAlwaysOnTop.Checked; };
@@ -35,19 +43,7 @@ public partial class Windows : UserControl
         };
 
 
-        SystemIcon.ClickOnNotification += delegate
-        {
-            System.Windows.Forms.MessageBox.Show("lalala");
-        };
-        button1.Click += delegate
-        {
-            SystemIcon.ShowNotification(1000, "title", "text", ToolTipIcon.Info);
-        };
-
-
-
 
     }
-
 
 }

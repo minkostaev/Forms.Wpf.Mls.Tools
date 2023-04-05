@@ -1,5 +1,6 @@
 ﻿namespace Wpf.Test.Helper;
 
+using Forms.Wpf.Mls.Tools.Models;
 using Forms.Wpf.Mls.Tools.Services;
 using System;
 using System.Windows;
@@ -14,6 +15,16 @@ public partial class MainWindow : Window
         // Save-Load Windows Size and Position
         SizePositioning.AssignWindow(this);
 
+        var prsn = new Person();
+        string json = @"
+{
+    ""Type"": ""Person"",
+    ""Name"": ""John"",
+    ""Age"": 30
+}"
+;
+        prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;
+
         // Escape closes window
         var escapeCloses = new EscapeCloses(this);
         //escapeCloses.AskConfirmation = true;
@@ -23,7 +34,7 @@ public partial class MainWindow : Window
 
         grdFolders.Children.Add(new Folders());
         grdWindows.Children.Add(new Windows(this));
-
+        grdTree.Children.Add(new TreeViewLines());
 
     }
 
