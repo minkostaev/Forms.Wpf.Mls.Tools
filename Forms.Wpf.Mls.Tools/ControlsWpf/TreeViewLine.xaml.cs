@@ -11,4 +11,5 @@ public partial class TreeViewLine : System.Windows.Controls.UserControl
         TreeLines = trVwMain;
     }
     public System.Windows.Controls.TreeView TreeLines { get; private set; }
+
 }

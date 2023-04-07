@@ -1,11 +1,9 @@
-﻿using Forms.Wpf.Mls.Tools.Services;
+﻿namespace Wpf.Test.Helper.Controls;
+
+using Forms.Wpf.Mls.Tools.ControlsWf;
+using Forms.Wpf.Mls.Tools.Services;
 using System.Windows.Controls;
 
-namespace Wpf.Test.Helper.Controls;
-
-/// <summary>
-/// Interaction logic for Windows.xaml
-/// </summary>
 public partial class Windows : UserControl
 {
     public Windows(MainWindow window)

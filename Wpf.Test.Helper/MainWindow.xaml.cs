@@ -1,6 +1,5 @@
 ﻿namespace Wpf.Test.Helper;
 
-using Forms.Wpf.Mls.Tools.Models;
 using Forms.Wpf.Mls.Tools.Services;
 using System;
 using System.Windows;
@@ -23,7 +22,7 @@ public partial class MainWindow : Window
     ""Age"": 30
 }"
 ;
-        prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;
+        prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;// to do more
 
         // Escape closes window
         var escapeCloses = new EscapeCloses(this);

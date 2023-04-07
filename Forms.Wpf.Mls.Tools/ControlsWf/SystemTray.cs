@@ -235,6 +235,7 @@ public class SystemTray//NotifyIcon
     public event EventHandler? ClickOnNotification;
     public event MouseEventHandler? ClickOnIcon;
 
+    //public event EventHandler? VisibilityChange; // to do
 
 }
 // to do move to Controls 

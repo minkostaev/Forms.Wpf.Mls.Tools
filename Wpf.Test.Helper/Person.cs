@@ -1,4 +1,4 @@
-﻿namespace Forms.Wpf.Mls.Tools.Models;
+﻿namespace Wpf.Test.Helper;
 
 public class Person
 {

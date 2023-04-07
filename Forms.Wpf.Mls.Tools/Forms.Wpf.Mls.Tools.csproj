@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <VersionPrefix>1.0.2</VersionPrefix>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <VersionPrefix>1.0.3</VersionPrefix>
     <IsPackable>true</IsPackable>
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
   </PropertyGroup>
