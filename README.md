@@ -19,9 +19,11 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## EscapeCloses - *On ESC keyboard pressed closes Window/Form*
 
+- ## JsonConvert - *Json to object and object To json*
+
 - ## Shortcuts - *Methods for creating shortcut*
 
-- ## JsonConvert - *Json to object and object To json*
+- ## SizePositioning - *Save Window/Form position and size on the monitor*
 
 - ## SpecialFolders - *Windows' special folders*
 
