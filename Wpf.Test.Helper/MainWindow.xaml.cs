@@ -15,13 +15,7 @@ public partial class MainWindow : Window
         SizePositioning.AssignWindow(this);
 
         var prsn = new Person();
-        string json = @"
-{
-    ""Type"": ""Person"",
-    ""Name"": ""John"",
-    ""Age"": 30
-}"
-;
+        string json = @"{""Name"": ""John"",""Age"": 30}";
         prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;// to do more
 
         // Escape closes window

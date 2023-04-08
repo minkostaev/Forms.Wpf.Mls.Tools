@@ -15,57 +15,26 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 ### *Services:*
 
-- ## AssemblyProperties - Ready to use Exe/dll properties
+- ## AssemblyProperties - *Ready to use Exe/dll properties*
 
-It has simple to use properties. Now it has only 5, but more will be added in the future. One example:
+- ## EscapeCloses - *On ESC keyboard pressed closes Window/Form*
 
-```
-var appIcon = AssemblyProperties.AssemblyIcon;
-```
+- ## Shortcuts - *Methods for creating shortcut*
 
-- ## EscapeCloses - On ESC keyboard pressed closes Window/Form
+- ## JsonConvert - *Json to object and object To json*
 
-Easy to use service to close Window/Form on keyboard key press button ESC
-
-- ## Shortcuts - Methods for creating shortcut
-
-Easy to create shortcut with one line. It has also Startup Shortcut - ready to use method to add shortcut to users startup folder.
-
-```
-Shortcuts.CreateShortcut(exePath, lnkPath);
-```
-
-- ## SizePositioning - Save Window/Form position and size on the monitor
-
-It's not the standard way with project's resource  properties. This uses json. Serialize on close and deserialize on load. To use it you need only this line:
-
-```
-SizePositioning.AssignForm(this);
-```
-or
-```
-SizePositioning.AssignWindow(this);
-```
-
-- ## SpecialFolders - Windows' special folders
-
-It has simple to use properties. Now it has only 5, but more will be added in the future. One example 'C:\ProgramData':
-
-```
-var progData = SpecialFolders.CommonAppData;
-```
+- ## SpecialFolders - *Windows' special folders*
 
 [read more with examples](README/nuget.md)
 
 ### *Controls:*
 
-- ## SystemTray - Adding NotifyIcon control to Window/Form
+### *Win Forms:*
 
-This adds icon in the Windows taskbar system tray. It has default context menu that you can replace with your own. It also has - close app to the tray icon and doble click opens back the app.
+- ## SystemTray - *Adding NotifyIcon control to Window/Form*
 
-```
-var SystemIcon = new SystemTray(form);
-chBxSystemTray.CheckedChanged += delegate { SystemIcon.Visibility = chBxSystemTray.Checked; };
-````
+### *WPF:*
+
+- ## TreeViewLine - *A custom TreeView with lines*
 
 [read more with examples](/README/nuget.md)
