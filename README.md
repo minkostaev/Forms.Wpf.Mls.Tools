@@ -25,7 +25,7 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## SpecialFolders - *Windows' special folders*
 
-[read more with examples](README/nuget.md)
+[read more with examples](README/services.md)
 
 ### *Controls:*
 
@@ -37,4 +37,4 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## TreeViewLine - *A custom TreeView with lines*
 
-[read more with examples](/README/nuget.md)
+[read more with examples](/README/controls.md)
