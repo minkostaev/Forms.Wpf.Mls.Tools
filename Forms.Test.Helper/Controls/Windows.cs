@@ -11,7 +11,7 @@ public partial class Windows : UserControl
 
         // System Tray
         chBxSystemTray.Checked = true;
-        var SystemIcon = new SystemTray(form, false, false);
+        var SystemIcon = new SystemTray(form, true, true);
         chBxSystemTray.CheckedChanged += delegate { SystemIcon.Visibility = chBxSystemTray.Checked; };
         btnNotification.Click += delegate
         {

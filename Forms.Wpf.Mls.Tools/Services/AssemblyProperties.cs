@@ -1,5 +1,6 @@
 ﻿namespace Forms.Wpf.Mls.Tools.Services;
 
+using System.IO;
 using System.Reflection;
 
 public static class AssemblyProperties
@@ -12,7 +13,10 @@ public static class AssemblyProperties
     /// </summary>
     public static string? AssemblyName => AssemblyEntry?.GetName().Name;
     public static string? DllName => AssemblyExecuting?.GetName().Name;
-    
+
+    public static string? ExePath => AssemblyExecuting?.Location;
+    public static string? ExeDir => Path.GetDirectoryName(ExePath);
+
     /// <summary>
     /// Exe icon
     /// </summary>

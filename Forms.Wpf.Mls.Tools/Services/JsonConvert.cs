@@ -32,7 +32,7 @@ public static class JsonConvert
         catch (Exception) { return null; }
     }
 
-    private static string ObjectToJsonString(object obj)
+    public static string ObjectToJsonString(object obj)
     {
         try
         {
@@ -43,7 +43,7 @@ public static class JsonConvert
         }
         catch (Exception) { return string.Empty; }
     }
-    private static bool ObjectToJsonFile(object obj, string filePath)
+    public static bool ObjectToJsonFile(object obj, string filePath)
     {
         try
         {

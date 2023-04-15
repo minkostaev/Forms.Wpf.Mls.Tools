@@ -3,13 +3,13 @@
 using Forms.Wpf.Mls.Tools.Models;
 using System;
 using System.IO;
+using System.Linq.Expressions;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shell;
-using static Forms.Wpf.Mls.Tools.Models.PositionSize;
 
 public static class SizePositioning
 {
@@ -103,11 +103,20 @@ public static class SizePositioning
     private static string JsonPath(string fileName, WindowsLocation location)
     {
         string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
-        string dir = Path.Combine(SpecialFolders.LocalAppData, appNmae);
+        string? winAppLocation = location switch
+        {
+            WindowsLocation.OwnApp => AssemblyProperties.ExeDir,
+            WindowsLocation.ProgramData => SpecialFolders.CommonAppData,
+            WindowsLocation.LocalData => SpecialFolders.LocalAppData,
+            WindowsLocation.RoamingData => SpecialFolders.RoamingFolder,
+            _ => SpecialFolders.LocalAppData,
+        };
+        string dir = Path.Combine(winAppLocation ?? SpecialFolders.LocalAppData, appNmae);
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
+        fileName = !string.IsNullOrWhiteSpace(fileName) ? fileName : appNmae;
         return Path.Combine(dir, fileName + ".json");
     }
 

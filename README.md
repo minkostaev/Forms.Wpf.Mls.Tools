@@ -19,7 +19,7 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## EscapeCloses - *On ESC keyboard pressed closes Window/Form*
 
-- ## JsonConvert - *Json to object and object To json*
+- ## JsonConvert - *Json to object and object to json*
 
 - ## Shortcuts - *Methods for creating shortcut*
 

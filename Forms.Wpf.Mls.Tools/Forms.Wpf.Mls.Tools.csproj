@@ -10,8 +10,19 @@
     <FileVersion>1.0.3.0</FileVersion>
     <VersionPrefix>1.0.3</VersionPrefix>
     <IsPackable>true</IsPackable>
+    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <!--<ItemGroup>
+    <None Include="..\README\nuget.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>-->
 
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">

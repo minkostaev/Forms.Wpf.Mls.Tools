@@ -19,11 +19,11 @@ public partial class MainWindow : Window
         prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;// to do more
 
         // Escape closes window
-        var escapeCloses = new EscapeCloses(this);
-        //escapeCloses.AskConfirmation = true;
+        EscapeCloses.InitWindow(this);
 
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();
+        //
 
         grdFolders.Children.Add(new Folders());
         grdWindows.Children.Add(new Windows(this));

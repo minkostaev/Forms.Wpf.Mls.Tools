@@ -1,13 +1,10 @@
-﻿using Forms.Wpf.Mls.Tools.Services;
-using System.Diagnostics;
+﻿namespace Wpf.Test.Helper.Controls;
+
+using Forms.Wpf.Mls.Tools.Services;
 using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 
-namespace Wpf.Test.Helper.Controls;
-
-/// <summary>
-/// Interaction logic for Folders.xaml
-/// </summary>
 public partial class Folders : UserControl
 {
     public Folders()

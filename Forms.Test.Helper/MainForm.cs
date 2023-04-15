@@ -13,14 +13,11 @@ public partial class MainForm : Form
         SizePositioning.AssignForm(this);
 
         // Escape closes window
-        var escapeCloses = new EscapeCloses(this);
-        //escapeCloses.AskConfirmation = true;
-        //escapeCloses.AskMessage = "aaaa";
-        //escapeCloses.AskCaption = "bbbb";
+        EscapeCloses.InitForm(this);
 
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();// to do 
-
+        //
 
         var windows = new Windows(this)
         { Dock = DockStyle.Fill };

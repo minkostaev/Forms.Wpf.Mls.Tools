@@ -27,10 +27,8 @@ public partial class TreeViewLines : UserControl
         treeViewLine.TreeLines.Items.Add(treeViewItem);
         treeViewLine.TreeLines.Items.Add(treeViewItem3);
 
-
-
-
         grd.Children.Add(treeViewLine);
 
+        treeViewItem.ExpandSubtree();
     }
 }
