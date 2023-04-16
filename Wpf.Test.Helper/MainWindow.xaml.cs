@@ -16,7 +16,7 @@ public partial class MainWindow : Window
 
         var prsn = new Person();
         string json = @"{""Name"": ""John"",""Age"": 30}";
-        prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;// to do more
+        prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
 
         // Escape closes window
         EscapeCloses.InitWindow(this);

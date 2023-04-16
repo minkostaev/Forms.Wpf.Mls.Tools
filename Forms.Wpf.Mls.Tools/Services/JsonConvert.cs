@@ -6,11 +6,19 @@ using System.Text.Json;
 public static class JsonConvert
 {
 
-    public static object? JsonStringToObject(string json, object obj)
+    /// <summary>
+    /// Deserialize Json string to object.
+    /// </summary>
+    /// <param name="obj">It is needed only to get type</param>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static object? JsonStringToObject(object? obj, string json)
     {
         try
         {
-            var type = obj.GetType();
+            var type = obj?.GetType();
+            if (type == null)
+                return null;
             var jsonDoc = JsonDocument.Parse(json);
             var result = JsonSerializer.Deserialize(jsonDoc, type);
             jsonDoc.Dispose();
@@ -18,7 +26,13 @@ public static class JsonConvert
         }
         catch (Exception) { return null; }
     }
-    public static object? JsonFileToObject(string? filePath, object obj)
+    /// <summary>
+    /// Deserialize Json file to object.
+    /// </summary>
+    /// <param name="obj">It is needed only to get type</param>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    public static object? JsonFileToObject(object? obj, string? filePath)
     {
         if (!File.Exists(filePath))
         {
@@ -27,12 +41,17 @@ public static class JsonConvert
         try
         {
             string json = File.ReadAllText(filePath);
-            return JsonStringToObject(json, obj);
+            return JsonStringToObject(obj, json);
         }
         catch (Exception) { return null; }
     }
 
-    public static string ObjectToJsonString(object obj)
+    /// <summary>
+    /// Serialize Json object to string.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public static string ObjectToJsonString(object? obj)
     {
         try
         {
@@ -43,11 +62,19 @@ public static class JsonConvert
         }
         catch (Exception) { return string.Empty; }
     }
-    public static bool ObjectToJsonFile(object obj, string filePath)
+    /// <summary>
+    /// Serialize Json object to file.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    public static bool ObjectToJsonFile(object? obj, string? filePath)
     {
         try
         {
             var jsonString = ObjectToJsonString(obj);
+            if (string.IsNullOrWhiteSpace(filePath))
+                return false;
             File.WriteAllText(filePath, jsonString);
             return true;
         }
@@ -55,4 +82,3 @@ public static class JsonConvert
     }
 
 }
-// to do describe the methods

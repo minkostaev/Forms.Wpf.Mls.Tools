@@ -1,6 +1,14 @@
 ### *Services:*
 
-- ## AssemblyProperties - *Ready to use Exe/dll properties*
+- ## AppSettings - *Save objects to files and load it back*
+
+todo. One example:
+
+```
+todo
+```
+
+- ## AssemblyProperties - *Ready to use exe/dll properties*
 
 It has simple to use properties. Now it has only 5, but more will be added in the future. One example:
 
@@ -8,11 +16,11 @@ It has simple to use properties. Now it has only 5, but more will be added in th
 var appIcon = AssemblyProperties.AssemblyIcon;
 ```
 
-- ## EscapeCloses - *On ESC keyboard pressed closes Window/Form*
+- ## EscapeCloses - *On ESC keyboard pressed closes Form/Window*
 
 Easy to use service to close Window/Form on keyboard key press button ESC
 
-- ## JsonConvert - *Json to object and object To json*
+- ## JsonConvert - *Json to object and object to json*
 
 Serialize and deserialize easy with few lines (plus file path methods)
 
@@ -30,7 +38,7 @@ Easy to create shortcut with one line. It has also Startup Shortcut - ready to u
 Shortcuts.CreateShortcut(exePath, lnkPath);
 ```
 
-- ## SizePositioning - *Save Window/Form position and size on the monitor*
+- ## SizePositioning - *Save Form/Window position and size on the monitor*
 
 It's not the standard way with project's resource  properties. This uses json. Serialize on close and deserialize on load. To use it you need only this line:
 

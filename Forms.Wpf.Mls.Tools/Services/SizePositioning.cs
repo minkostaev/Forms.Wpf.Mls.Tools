@@ -3,7 +3,6 @@
 using Forms.Wpf.Mls.Tools.Models;
 using System;
 using System.IO;
-using System.Linq.Expressions;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Interop;
@@ -18,7 +17,7 @@ public static class SizePositioning
     {
         form.StartPosition = FormStartPosition.Manual;//important
         string formName = form.GetType().Name;
-        string path = JsonPath(formName, location);
+        string path = AppSettings.JsonPath(location, formName);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -45,7 +44,7 @@ public static class SizePositioning
         WindowsLocation location = WindowsLocation.LocalData, ImageSource? resetIcon = null)
     {
         string windowName = window.GetType().Name;
-        string path = JsonPath(windowName, location);
+        string path = AppSettings.JsonPath(location, windowName);
 
         #region Load file and apply to Window
         var obj = JsonFileToObject(path);
@@ -98,26 +97,6 @@ public static class SizePositioning
         window.TaskbarItemInfo = taskbarInfo;
         #endregion
 
-    }
-
-    private static string JsonPath(string fileName, WindowsLocation location)
-    {
-        string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
-        string? winAppLocation = location switch
-        {
-            WindowsLocation.OwnApp => AssemblyProperties.ExeDir,
-            WindowsLocation.ProgramData => SpecialFolders.CommonAppData,
-            WindowsLocation.LocalData => SpecialFolders.LocalAppData,
-            WindowsLocation.RoamingData => SpecialFolders.RoamingFolder,
-            _ => SpecialFolders.LocalAppData,
-        };
-        string dir = Path.Combine(winAppLocation ?? SpecialFolders.LocalAppData, appNmae);
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        fileName = !string.IsNullOrWhiteSpace(fileName) ? fileName : appNmae;
-        return Path.Combine(dir, fileName + ".json");
     }
 
     private static bool ObjectToJsonFile(PositionSize positionSize, string filePath)

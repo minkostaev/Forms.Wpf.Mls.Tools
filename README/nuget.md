@@ -5,15 +5,17 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 ### *Services:*
 
-- ## AssemblyProperties - *Ready to use Exe/dll properties*
+- ## AppSettings - *Save objects to files and load it back*
 
-- ## EscapeCloses - *On ESC keyboard pressed closes Window/Form*
+- ## AssemblyProperties - *Ready to use exe/dll properties*
+
+- ## EscapeCloses - *On ESC keyboard pressed closes Form/Window*
 
 - ## JsonConvert - *Json to object and object to json*
 
 - ## Shortcuts - *Methods for creating shortcut*
 
-- ## SizePositioning - *Save Window/Form position and size on the monitor*
+- ## SizePositioning - *Save Form/Window position and size on the monitor*
 
 - ## SpecialFolders - *Windows' special folders*
 
@@ -23,7 +25,7 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 ### *Win Forms:*
 
-- ## SystemTray - *Adding NotifyIcon control to Window/Form*
+- ## SystemTray - *Adding NotifyIcon control to Form/Window*
 
 ### *WPF:*
 

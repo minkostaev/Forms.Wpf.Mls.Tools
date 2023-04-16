@@ -3,22 +3,30 @@
 using Forms.Wpf.Mls.Tools.Models;
 using System.IO;
 
-public static class JsonSettings
+public static class AppSettings
 {
 
-    public static void Save(object obj)
+    public static bool Save(object obj, WindowsLocation location, string fileName)
     {
-        string path = JsonPath("", WindowsLocation.LocalData);
-        JsonConvert.ObjectToJsonFile(obj, path);
-    }//to do
-
-    public static void Load(object obj)
+        string path = JsonPath(location, fileName);
+        return Save(obj, path);
+    }
+    public static bool Save(object obj, string filePath)
     {
-        string path = JsonPath("", WindowsLocation.LocalData);
-        JsonConvert.JsonFileToObject(path, obj);
-    }//to do
+        return JsonConvert.ObjectToJsonFile(obj, filePath);
+    }
 
-    private static string JsonPath(string fileName, WindowsLocation location)
+    public static object? Load(object obj, WindowsLocation location, string fileName)
+    {
+        string path = JsonPath(location, fileName);
+        return Load(obj, path);
+    }
+    public static object? Load(object obj, string filePath)
+    {
+        return JsonConvert.JsonFileToObject(obj, filePath);
+    }
+
+    public static string JsonPath(WindowsLocation location, string fileName)
     {
         string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
         string? winAppLocation = location switch
@@ -30,6 +38,8 @@ public static class JsonSettings
             _ => SpecialFolders.LocalAppData,
         };
         string dir = Path.Combine(winAppLocation ?? SpecialFolders.LocalAppData, appNmae);
+        if (location == WindowsLocation.OwnApp && !string.IsNullOrWhiteSpace(winAppLocation))
+            dir = winAppLocation;
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);

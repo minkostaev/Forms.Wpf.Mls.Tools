@@ -2,7 +2,7 @@
 
 ### *Win Forms:*
 
-- ## SystemTray - *Adding NotifyIcon control to Window/Form*
+- ## SystemTray - *Adding NotifyIcon control to Form/Window*
 
 This adds icon in the Windows taskbar system tray. It has default context menu that you can replace with your own. It also has - close app to the tray icon and doble click opens back the app.
 
