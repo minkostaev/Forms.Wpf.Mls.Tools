@@ -59,4 +59,4 @@ It has simple to use properties. Now it has only 5, but more will be added in th
 var progData = SpecialFolders.CommonAppData;
 ```
 
-[back](/..)
+[back]()
