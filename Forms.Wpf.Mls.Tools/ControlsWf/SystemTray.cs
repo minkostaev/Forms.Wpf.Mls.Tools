@@ -238,4 +238,4 @@ public class SystemTray//NotifyIcon
     //public event EventHandler? VisibilityChange; // to do
 
 }
-//
+// to do a lot more

@@ -1,6 +1,8 @@
 ﻿namespace Forms.Test.Helper.Controls;
 
+using Forms.Test.Helper.Models;
 using Forms.Wpf.Mls.Tools.ControlsWf;
+using Forms.Wpf.Mls.Tools.Models;
 using Forms.Wpf.Mls.Tools.Services;
 
 public partial class Windows : UserControl
@@ -9,25 +11,52 @@ public partial class Windows : UserControl
     {
         InitializeComponent();
 
-        // System Tray
-        chBxSystemTray.Checked = true;
-        var SystemIcon = new SystemTray(form, true, true);
-        chBxSystemTray.CheckedChanged += delegate { SystemIcon.Visibility = chBxSystemTray.Checked; };
+        // AppSettings load
+        var wSettings = AppSettings.Load(new WindowsSettings(), WindowsLocation.LocalData, "WindowsSettings") as WindowsSettings;
+        wSettings ??= new WindowsSettings();
+        ////
+
+        #region System Tray
+        var systemIcon = new SystemTray(form, true, true);
+        systemIcon.Visibility = wSettings.SystemTray;
+        chBxSystemTray.Checked = wSettings.SystemTray;
+        chBxSystemTray.CheckedChanged += delegate
+        {
+            wSettings.SystemTray = chBxSystemTray.Checked;
+            systemIcon.Visibility = wSettings.SystemTray;
+            SaveSettings(wSettings);
+        };
         btnNotification.Click += delegate
         {
-            SystemIcon.ShowNotification("");
+            systemIcon.ShowNotification("");
         };
-        SystemIcon.ClickOnNotification += delegate
+        systemIcon.ClickOnNotification += delegate
         {
             MessageBox.Show("lalala");
         };
+        #endregion
 
-        // Always On Top
-        chBxAlwaysOnTop.CheckedChanged += delegate { form.TopMost = chBxAlwaysOnTop.Checked; };
+        #region Always On Top
+        form.TopMost = wSettings.AlwaysOnTop;
+        chBxAlwaysOnTop.Checked = wSettings.AlwaysOnTop;
+        chBxAlwaysOnTop.CheckedChanged += delegate
+        {
+            wSettings.AlwaysOnTop = chBxAlwaysOnTop.Checked;
+            form.TopMost = wSettings.AlwaysOnTop;
+            SaveSettings(wSettings);
+        };
+        #endregion
 
-        // Show In Taskbar
-        chBxShowInTaskbar.Checked = true;
-        chBxShowInTaskbar.CheckedChanged += delegate { form.ShowInTaskbar = chBxShowInTaskbar.Checked; };
+        #region Show In Taskbar
+        form.ShowInTaskbar = wSettings.ShowInTaskbar;
+        chBxShowInTaskbar.Checked = wSettings.ShowInTaskbar;
+        chBxShowInTaskbar.CheckedChanged += delegate
+        {
+            wSettings.ShowInTaskbar = chBxShowInTaskbar.Checked;
+            form.ShowInTaskbar = wSettings.ShowInTaskbar;
+            SaveSettings(wSettings);
+        };
+        #endregion
 
         // Startup Shortcut
         chBxWindowsStartup.Checked = Shortcuts.IsAppInpStartup;
@@ -44,7 +73,11 @@ public partial class Windows : UserControl
         };
 
 
+    }
 
+    private static void SaveSettings(WindowsSettings? windowsSettings)
+    {
+        AppSettings.Save(windowsSettings, WindowsLocation.LocalData, "WindowsSettings");
     }
 
 }

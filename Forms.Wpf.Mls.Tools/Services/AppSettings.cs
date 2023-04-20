@@ -6,22 +6,22 @@ using System.IO;
 public static class AppSettings
 {
 
-    public static bool Save(object obj, WindowsLocation location, string fileName)
+    public static bool Save(object? obj, WindowsLocation location, string fileName)
     {
         string path = JsonPath(location, fileName);
         return Save(obj, path);
     }
-    public static bool Save(object obj, string filePath)
+    public static bool Save(object? obj, string filePath)
     {
         return JsonConvert.ObjectToJsonFile(obj, filePath);
     }
 
-    public static object? Load(object obj, WindowsLocation location, string fileName)
+    public static object? Load(object? obj, WindowsLocation location, string fileName)
     {
         string path = JsonPath(location, fileName);
         return Load(obj, path);
     }
-    public static object? Load(object obj, string filePath)
+    public static object? Load(object? obj, string filePath)
     {
         return JsonConvert.JsonFileToObject(obj, filePath);
     }
@@ -49,3 +49,4 @@ public static class AppSettings
     }
 
 }
+// add summaries

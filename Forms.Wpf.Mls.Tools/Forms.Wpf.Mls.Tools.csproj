@@ -6,11 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <VersionPrefix>1.0.4</VersionPrefix>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <VersionPrefix>1.0.5</VersionPrefix>
     <IsPackable>true</IsPackable>
-    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
+    <PackageReadmeFile>nuget.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -20,9 +20,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <None Include="..\README\nuget.md" Pack="true" PackagePath="\"/>
-  </ItemGroup>-->
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">

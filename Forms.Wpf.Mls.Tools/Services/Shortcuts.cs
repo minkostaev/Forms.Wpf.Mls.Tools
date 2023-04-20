@@ -10,8 +10,8 @@ public static class Shortcuts
     public static void CreateShortcut(string? exePath, string? shortcutPath, string? shortcutComment = "")
     {
         // Create a new shortcut object
-        WshShell shell = new WshShell();
-        IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
+        var shell = new WshShell();
+        var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
 
         // Set shortcut properties
         shortcut.TargetPath = exePath;

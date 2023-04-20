@@ -17,16 +17,16 @@ public partial class MainForm : Form
 
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();// to do 
-        //
+        // to do
 
         var windows = new Windows(this)
         { Dock = DockStyle.Fill };
         tbPgWindows.Controls.Add(windows);
 
 
-        var prsn = new Person();
-        string json = @"{""Name"": ""John"",""Age"": 30}";
-        prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
+        ///var prsn = new Person();
+        ///string json = @"{""Name"": ""John"",""Age"": 30}";
+        ///prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
         
 
         var folders = new Folders

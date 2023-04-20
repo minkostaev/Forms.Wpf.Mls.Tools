@@ -2,10 +2,11 @@
 
 - ## AppSettings - *Save objects to files and load it back*
 
-todo. One example:
+Object with properties to Json file and Json file deserialize back in object. One example:
 
 ```
-todo
+bool isSaved = AppSettings.Save(myPropsObj, WindowsLocation.LocalData, "props");
+MyPropsObj myPropsObj = AppSettings.Load(myPropsObj, WindowsLocation.LocalData, "prop") as MyPropsObj;
 ```
 
 - ## AssemblyProperties - *Ready to use exe/dll properties*
@@ -19,6 +20,10 @@ var appIcon = AssemblyProperties.AssemblyIcon;
 - ## EscapeCloses - *On ESC keyboard pressed closes Form/Window*
 
 Easy to use service to close Window/Form on keyboard key press button ESC
+
+```
+EscapeCloses.InitWindow(this);
+```
 
 - ## JsonConvert - *Json to object and object to json*
 
@@ -45,10 +50,6 @@ It's not the standard way with project's resource  properties. This uses json. S
 ```
 SizePositioning.AssignForm(this);
 ```
-or
-```
-SizePositioning.AssignWindow(this);
-```
 
 - ## SpecialFolders - *Windows' special folders*
 
@@ -58,4 +59,4 @@ It has simple to use properties. Now it has only 5, but more will be added in th
 var progData = SpecialFolders.CommonAppData;
 ```
 
-[back](https://github.com/minkostaev/Forms.Wpf.Mls.Tools)
+[back](/..)

@@ -14,16 +14,18 @@ public partial class MainWindow : Window
         // Save-Load Windows Size and Position
         SizePositioning.AssignWindow(this);
 
-        var prsn = new Person();
-        string json = @"{""Name"": ""John"",""Age"": 30}";
-        prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
+        ///var prsn = new Person();
+        ///string json = @"{""Name"": ""John"",""Age"": 30}";
+        ///prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;
+        ///bool isSaved = AppSettings.Save(prsn, WindowsLocation.LocalData, "prop");
+        ///prsn = AppSettings.Load(prsn, WindowsLocation.LocalData, "prop") as Person;
 
         // Escape closes window
         EscapeCloses.InitWindow(this);
 
         // I want to use it in shortcut properties after installation
         string[] args = Environment.GetCommandLineArgs();
-        //
+        // to do
 
         grdFolders.Children.Add(new Folders());
         grdWindows.Children.Add(new Windows(this));

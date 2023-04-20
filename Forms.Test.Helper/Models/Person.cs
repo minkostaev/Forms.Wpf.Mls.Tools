@@ -1,4 +1,4 @@
-﻿namespace Forms.Test.Helper;
+﻿namespace Forms.Test.Helper.Models;
 
 public class Person
 {

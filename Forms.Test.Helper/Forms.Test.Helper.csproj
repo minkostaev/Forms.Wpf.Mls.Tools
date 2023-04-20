@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <VersionPrefix>1.0.2</VersionPrefix>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <VersionPrefix>1.0.3</VersionPrefix>
     <VersionSuffix>$([System.DateTime]::UtcNow.ToString(yyyy-MM-dd))</VersionSuffix>
   </PropertyGroup>
 
