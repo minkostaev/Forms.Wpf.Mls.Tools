@@ -22,4 +22,4 @@ var treeViewLine = new TreeViewLine();
 grid.Children.Add(treeViewLine);
 ```
 
-[back](../blob/main/LICENSE)
+[back](../README.md)
