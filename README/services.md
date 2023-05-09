@@ -35,6 +35,8 @@ string json = @"{""Name"": ""John"",""Age"": 30}";
 prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;
 ```
 
+Plus: Methods that deserialize **ANY** Json to Dictionary<string, object> (supported types: list, string, int, decimal and bool)
+
 - ## Shortcuts - *Methods for creating shortcut*
 
 Easy to create shortcut with one line. It has also Startup Shortcut - ready to use method to add shortcut to users startup folder.

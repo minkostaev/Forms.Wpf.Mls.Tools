@@ -27,7 +27,7 @@ public partial class MainForm : Form
         ///var prsn = new Person();
         ///string json = @"{""Name"": ""John"",""Age"": 30}";
         ///prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
-        
+
 
         var folders = new Folders
         { Dock = DockStyle.Fill };

@@ -6,10 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <VersionPrefix>1.0.5</VersionPrefix>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    <VersionPrefix>1.0.6</VersionPrefix>
     <IsPackable>true</IsPackable>
+    <Description>This library will help your Win Forms and WPF apps with usefull tools (services and controls)</Description>
     <PackageReadmeFile>nuget.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</RepositoryUrl>
