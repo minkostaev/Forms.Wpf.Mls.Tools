@@ -30,6 +30,7 @@ public partial class MainWindow : Window
         grdFolders.Children.Add(new Folders());
         grdWindows.Children.Add(new Windows(this));
         grdTree.Children.Add(new TreeViewLines());
+        grdLanguage.Children.Add(new MultiLanguage());
 
     }
 

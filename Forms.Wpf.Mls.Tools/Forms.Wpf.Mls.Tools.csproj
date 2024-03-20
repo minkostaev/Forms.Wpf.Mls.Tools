@@ -6,12 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.6.0</AssemblyVersion>
-    <FileVersion>1.0.6.0</FileVersion>
-    <VersionPrefix>1.0.6</VersionPrefix>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+    <FileVersion>1.0.7.0</FileVersion>
+    <VersionPrefix>1.0.7</VersionPrefix>
     <IsPackable>true</IsPackable>
     <Description>This library will help your Win Forms and WPF apps with usefull tools (services and controls)</Description>
     <PackageReadmeFile>nuget.md</PackageReadmeFile>
+    <PackageTags>desktop;wpf</PackageTags>
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -22,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README\nuget.md" Pack="true" PackagePath="\"/>
+    <None Include="..\README\nuget.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,16 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AKSoftware.Localization.MultiLanguages" Version="5.9.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Languages\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

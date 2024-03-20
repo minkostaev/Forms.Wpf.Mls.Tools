@@ -23,11 +23,11 @@ public partial class MainForm : Form
         { Dock = DockStyle.Fill };
         tbPgWindows.Controls.Add(windows);
 
-
         ///var prsn = new Person();
         ///string json = @"{""Name"": ""John"",""Age"": 30}";
         ///prsn = JsonConvert.JsonStringToObject(prsn, json) as Person;// to do more
 
+        //var asd = JsonConvert.JsonFileToDictionary(@"C:\Users\shefa\Downloads\Trakt_history_13-5-2023 242.json");
 
         var folders = new Folders
         { Dock = DockStyle.Fill };

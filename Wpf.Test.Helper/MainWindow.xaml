@@ -16,6 +16,9 @@
             <TabItem Header="Tree">
                 <Grid x:Name="grdTree"/>
             </TabItem>
+            <TabItem Header="Languages">
+                <Grid x:Name="grdLanguage"/>
+            </TabItem>
         </TabControl>
         
     </Grid>
