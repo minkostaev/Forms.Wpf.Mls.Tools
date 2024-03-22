@@ -31,6 +31,7 @@ public partial class MainWindow : Window
         grdWindows.Children.Add(new Windows(this));
         grdTree.Children.Add(new TreeViewLines());
         grdLanguage.Children.Add(new MultiLanguage());
+        grdRequests.Children.Add(new Requests());
 
     }
 

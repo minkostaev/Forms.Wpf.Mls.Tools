@@ -19,6 +19,9 @@
             <TabItem Header="Languages">
                 <Grid x:Name="grdLanguage"/>
             </TabItem>
+            <TabItem Header="Requests">
+                <Grid x:Name="grdRequests"/>
+            </TabItem>
         </TabControl>
         
     </Grid>

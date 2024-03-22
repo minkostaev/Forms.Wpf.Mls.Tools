@@ -31,6 +31,8 @@
             tabControl1 = new TabControl();
             tbPgFolders = new TabPage();
             tbPgWindows = new TabPage();
+            tbPgLanguage = new TabPage();
+            tbPgRequests = new TabPage();
             tabControl1.SuspendLayout();
             SuspendLayout();
             // 
@@ -38,6 +40,8 @@
             // 
             tabControl1.Controls.Add(tbPgFolders);
             tabControl1.Controls.Add(tbPgWindows);
+            tabControl1.Controls.Add(tbPgLanguage);
+            tabControl1.Controls.Add(tbPgRequests);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -65,6 +69,26 @@
             tbPgWindows.Text = "Windows";
             tbPgWindows.UseVisualStyleBackColor = true;
             // 
+            // tbPgLanguage
+            // 
+            tbPgLanguage.Location = new Point(4, 24);
+            tbPgLanguage.Name = "tbPgLanguage";
+            tbPgLanguage.Padding = new Padding(3);
+            tbPgLanguage.Size = new Size(792, 422);
+            tbPgLanguage.TabIndex = 2;
+            tbPgLanguage.Text = "Language";
+            tbPgLanguage.UseVisualStyleBackColor = true;
+            // 
+            // tbPgRequests
+            // 
+            tbPgRequests.Location = new Point(4, 24);
+            tbPgRequests.Name = "tbPgRequests";
+            tbPgRequests.Padding = new Padding(3);
+            tbPgRequests.Size = new Size(792, 422);
+            tbPgRequests.TabIndex = 3;
+            tbPgRequests.Text = "Requests";
+            tbPgRequests.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -82,5 +106,7 @@
         private TabControl tabControl1;
         private TabPage tbPgFolders;
         private TabPage tbPgWindows;
+        private TabPage tbPgLanguage;
+        private TabPage tbPgRequests;
     }
 }

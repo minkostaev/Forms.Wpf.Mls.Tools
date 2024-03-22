@@ -61,4 +61,21 @@ It has simple to use properties. Now it has only 5, but more will be added in th
 var progData = SpecialFolders.CommonAppData;
 ```
 
+- ## MultiLanguage - *Easily change multiple languages*
+
+[AK MULTILANGUAGES](https://github.com/aksoftware98/multilanguages)
+
+```
+LanguageService.SetCulture("nl-NL");
+lbl.Text = LanguageService.GetValue("hello_world");
+```
+
+- ## RequestManager - *Send CRUD api requests*
+
+It sends requests to APIs
+
+```
+var response = await _requestManager.SendRequest(target, method, body);
+```
+
 [back](https://github.com/minkostaev/Forms.Wpf.Mls.Tools)

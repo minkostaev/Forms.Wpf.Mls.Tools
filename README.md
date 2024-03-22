@@ -29,6 +29,10 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## SpecialFolders - *Windows' special folders*
 
+- ## MultiLanguage - *Easily change multiple languages*
+
+- ## RequestManager - *Send CRUD requests*
+
 [read more with examples](README/services.md)
 
 ### *Controls:*

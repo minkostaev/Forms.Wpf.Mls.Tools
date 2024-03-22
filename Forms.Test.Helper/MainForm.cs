@@ -33,7 +33,13 @@ public partial class MainForm : Form
         { Dock = DockStyle.Fill };
         tbPgFolders.Controls.Add(folders);
 
+        var lang = new MultiLanguage
+        { Dock = DockStyle.Fill };
+        tbPgLanguage.Controls.Add(lang);
 
+        var requests = new Requests
+        { Dock = DockStyle.Fill };
+        tbPgRequests.Controls.Add(requests);
 
     }
 
