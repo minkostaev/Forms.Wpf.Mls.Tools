@@ -3,7 +3,9 @@
 using Forms.Wpf.Mls.Tools.ControlsWf;
 using Forms.Wpf.Mls.Tools.Models;
 using Forms.Wpf.Mls.Tools.Services;
+using System.Configuration;
 using System.Windows.Controls;
+using System.Xml.Linq;
 using Wpf.Test.Helper.Models;
 
 public partial class Windows : UserControl
@@ -11,6 +13,16 @@ public partial class Windows : UserControl
     public Windows(MainWindow window)
     {
         InitializeComponent();
+
+        // Default ConfigurationManager
+        // in file 'App.config' :
+        //<?xml version="1.0"?>
+        //<configuration>
+        //  <connectionStrings>
+        //    <add name="mongo" connectionString="db+srv://pass:db.com"/>
+        //  </connectionStrings>
+        //</configuration>
+        //var connectionString = ConfigurationManager.ConnectionStrings["mongo"].ConnectionString;
 
         // AppSettings load
         var wSettings = AppSettings.Load(new WindowsSettings(), WindowsLocation.LocalData, "WindowsSettings") as WindowsSettings;
