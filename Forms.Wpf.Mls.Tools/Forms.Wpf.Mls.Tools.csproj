@@ -1,25 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
-    <VersionPrefix>1.0.7</VersionPrefix>
+    <AssemblyVersion>1.0.8.0</AssemblyVersion>
+    <FileVersion>1.0.8.0</FileVersion>
+    <VersionPrefix>1.0.8</VersionPrefix>
     <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Description>This library will help your Win Forms and WPF apps with usefull tools (services and controls)</Description>
     <PackageReadmeFile>nuget.md</PackageReadmeFile>
     <PackageTags>desktop;wpf</PackageTags>
     <PackageProjectUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</PackageProjectUrl>
     <RepositoryUrl>https://github.com/minkostaev/Forms.Wpf.Mls.Tools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,12 +42,6 @@
 
   <ItemGroup>
     <PackageReference Include="AKSoftware.Localization.MultiLanguages" Version="5.9.12" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Languages\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>
