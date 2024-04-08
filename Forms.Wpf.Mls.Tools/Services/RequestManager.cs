@@ -7,9 +7,16 @@ using System.Text;
 
 public class RequestManager
 {
-    public RequestManager()
+    public RequestManager(Dictionary<string, string>? headers = null)
     {
         client = new HttpClient();
+        if (headers != null)
+        {
+            foreach (var header in headers)
+            {
+                client.DefaultRequestHeaders.Add(header.Key, header.Value);
+            }
+        }
     }
 
     // Private
