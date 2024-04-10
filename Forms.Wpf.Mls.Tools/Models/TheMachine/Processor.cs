@@ -2,14 +2,17 @@
 
 public class Processor
 {
-    public Processor()
+    public Processor(bool initialize = false)
     {
-        Is64BitOS = Environment.Is64BitOperatingSystem;
-        Is64BitProcess = Environment.Is64BitProcess;
-        ProcessorCount = Environment.ProcessorCount;
+        if (initialize)
+        {
+            Os64 = Environment.Is64BitOperatingSystem;
+            Process64 = Environment.Is64BitProcess;
+            Count = Environment.ProcessorCount;
+        }
     }
-
-    public bool Is64BitOS { get; private set; }
-    public bool Is64BitProcess { get; private set; }
-    public int ProcessorCount { get; private set; }
+    
+    public bool Os64 { get; set; }
+    public bool Process64 { get; set; }
+    public int Count { get; set; }
 }

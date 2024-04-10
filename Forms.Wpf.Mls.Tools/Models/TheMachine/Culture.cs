@@ -4,18 +4,21 @@ using System.Globalization;
 
 public class Culture
 {
-    public Culture()
+    public Culture(bool initialize = false)
     {
         try
         {
-            CultureName = CultureInfo.CurrentCulture.Name;
-            EnglishName = CultureInfo.CurrentCulture.EnglishName;
-            DecimalSeparator = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            if (initialize)
+            {
+                Name = CultureInfo.CurrentCulture.Name;
+                Description = CultureInfo.CurrentCulture.EnglishName;
+                Separator = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            }
         }
         catch (Exception) { }
     }
 
-    public string? CultureName { get; private set; }
-    public string? EnglishName { get; private set; }
-    public string? DecimalSeparator { get; private set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
+    public string? Separator { get; set; }
 }
