@@ -17,11 +17,8 @@ public class TheMachine : Machine
         Version = new Version(true);
         Variables = [];
         Networks = [];
-        try { AddNetworkMachines(); AddUserVariables(); }
-        catch (Exception) { Networks.Add(new Network()); }
-        
-        var qq =  JsonSerializer.Serialize(Client);
-        Hash = HashString("");
+        try { AddNetworkMachines(); AddUserVariables(); AddHash(); }
+        catch (Exception) { }
     }
     private void AddNetworkMachines()
     {
@@ -73,6 +70,14 @@ public class TheMachine : Machine
                 }
             }
         }
+    }
+    public void AddHash()
+    {
+        var clientJson = JsonSerializer.Serialize(Client);
+        var cultureJson = JsonSerializer.Serialize(Culture);
+        var processorJson = JsonSerializer.Serialize(Processor);
+        var versionJson = JsonSerializer.Serialize(Version);
+        Hash = HashString(clientJson + cultureJson + processorJson + versionJson);
     }
 
     public static string HashString(string text, string salt = "")
