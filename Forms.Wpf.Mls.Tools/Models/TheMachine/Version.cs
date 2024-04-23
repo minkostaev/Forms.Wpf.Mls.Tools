@@ -6,15 +6,19 @@ public class Version
     {
         if (initialize)
         {
-            Description = Environment.OSVersion.VersionString;
-            Platform = Environment.OSVersion.Platform.ToString();
-            Pack = Environment.OSVersion.ServicePack;
-            Build = Environment.OSVersion.Version.Build;
-            Major = Environment.OSVersion.Version.Major;
-            //MajorRevision = Environment.OSVersion.Version.MajorRevision;
-            Minor = Environment.OSVersion.Version.Minor;
-            //MinorRevision = Environment.OSVersion.Version.MinorRevision;
-            Revision = Environment.OSVersion.Version.Revision;
+            try
+            {
+                Description = Environment.OSVersion.VersionString;
+                Platform = Environment.OSVersion.Platform.ToString();
+                Pack = Environment.OSVersion.ServicePack;
+                Build = Environment.OSVersion.Version.Build;
+                Major = Environment.OSVersion.Version.Major;
+                //MajorRevision = Environment.OSVersion.Version.MajorRevision;
+                Minor = Environment.OSVersion.Version.Minor;
+                //MinorRevision = Environment.OSVersion.Version.MinorRevision;
+                Revision = Environment.OSVersion.Version.Revision;
+            }
+            catch (Exception) { }
         }
     }
 

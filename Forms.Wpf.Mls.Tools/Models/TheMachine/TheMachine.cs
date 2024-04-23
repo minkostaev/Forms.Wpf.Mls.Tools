@@ -9,7 +9,7 @@ using System.Text.Json;
 
 public class TheMachine : Machine
 {
-    public TheMachine()
+    public TheMachine(bool network = true, bool variables = true)
     {
         Client = new Client(true);
         Culture = new Culture(true);
@@ -17,7 +17,14 @@ public class TheMachine : Machine
         Version = new Version(true);
         Variables = [];
         Networks = [];
-        try { AddNetworkMachines(); AddUserVariables(); AddHash(); }
+        try
+        {
+            if (network)
+                AddNetworkMachines();
+            if (variables)
+                AddUserVariables();
+            AddHash();
+        }
         catch (Exception) { }
     }
     private void AddNetworkMachines()
