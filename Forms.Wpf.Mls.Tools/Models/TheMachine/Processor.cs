@@ -2,6 +2,7 @@
 
 public class Processor
 {
+    public Processor() { }
     public Processor(bool initialize = false)
     {
         if (initialize)

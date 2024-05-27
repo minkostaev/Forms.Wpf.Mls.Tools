@@ -2,6 +2,7 @@
 
 public class Machine
 {
+    public string? Hash { get; set; }
     public Client? Client { get; set; }
     public Version? Version { get; set; }
     public Culture? Culture { get; set; }

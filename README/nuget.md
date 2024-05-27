@@ -13,7 +13,9 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## JsonConvert - *Json to object and object to json*
 
-- ## Shortcuts - *Methods for creating shortcut*
+- ## Shortcut - *Method for creating shortcut*
+
+- ## StartupShortcut - *Methods for add shortcut to users startup folder*
 
 - ## SizePositioning - *Save Form/Window position and size on the monitor*
 
@@ -21,7 +23,9 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## MultiLanguage - *Easily change multiple languages*
 
-- ## RequestManager - *Send CRUD api requests*
+- ## RequestManager - *Send API requests*
+
+- ## Internet - *Ping to check connection*
 
 [read more with examples](https://github.com/minkostaev/Forms.Wpf.Mls.Tools)
 

@@ -177,7 +177,7 @@ public class SystemTray//NotifyIcon
     {
         get
         {
-            return systemIcon.Icon;
+            return systemIcon.Icon!;
         }
         set
         {
@@ -205,7 +205,7 @@ public class SystemTray//NotifyIcon
     {
         get
         {
-            return systemIcon.ContextMenuStrip;
+            return systemIcon.ContextMenuStrip!;
         }
         set
         {

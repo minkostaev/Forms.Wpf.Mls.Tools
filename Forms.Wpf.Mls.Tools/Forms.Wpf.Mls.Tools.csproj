@@ -10,6 +10,7 @@
     <FileVersion>1.0.11.0</FileVersion>
     <VersionPrefix>1.0.11</VersionPrefix>
   </PropertyGroup>
+  
   <PropertyGroup><!--NuGet Package configuration for nuget.org-->
     <IsPackable>true</IsPackable>
     <Description>This library will help your Win Forms and WPF apps with usefull tools (services and controls)</Description>
@@ -24,12 +25,12 @@
     <IncludeSymbols>true</IncludeSymbols>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
-
-  <ItemGroup>
+  
+  <ItemGroup><!--NuGet Package configuration for nuget.org-->
     <None Include="..\README\nuget.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup><!--CreateShortcut-->
     <COMReference Include="IWshRuntimeLibrary">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>

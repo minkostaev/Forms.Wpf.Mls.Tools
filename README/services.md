@@ -37,12 +37,23 @@ prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;
 
 Plus: Methods that deserialize **ANY** Json to Dictionary<string, object> (supported types: list, string, int, decimal and bool)
 
-- ## Shortcuts - *Methods for creating shortcut*
+- ## Shortcut - *Method for creating shortcut*
 
-Easy to create shortcut with one line. It has also Startup Shortcut - ready to use method to add shortcut to users startup folder.
+Easy to create shortcut with one line.
 
 ```
-Shortcuts.CreateShortcut(exePath, lnkPath);
+Shortcut.Create(exePath, lnkPath);
+```
+
+- ## StartupShortcut - *Methods for add shortcut to users startup folder*
+
+Ready to use methods to add/remove shortcut to users startup folder.
+
+```
+var startupShortcut = new StartupShortcut();
+chBxWindowsStartup.IsChecked = startupShortcut.IsAppInStartup;
+chBxWindowsStartup.Checked += delegate { startupShortcut.Add(); };
+chBxWindowsStartup.Unchecked += delegate { startupShortcut.Remove(); };
 ```
 
 - ## SizePositioning - *Save Form/Window position and size on the monitor*
@@ -70,12 +81,19 @@ LanguageService.SetCulture("nl-NL");
 lbl.Text = LanguageService.GetValue("hello_world");
 ```
 
-- ## RequestManager - *Send CRUD api requests*
+- ## RequestManager - *Send API requests*
 
 It sends requests to APIs
 
 ```
 var response = await _requestManager.SendRequest(target, method, body);
+```
+
+- ## Internet - *Ping to check connection*
+
+Method that check for internet connection
+```
+bool hasInternet = CheckForConnection();
 ```
 
 [back](https://github.com/minkostaev/Forms.Wpf.Mls.Tools)

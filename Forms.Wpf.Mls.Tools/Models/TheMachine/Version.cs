@@ -2,6 +2,7 @@
 
 public class Version
 {
+    public Version() { }
     public Version(bool initialize = false)
     {
         if (initialize)

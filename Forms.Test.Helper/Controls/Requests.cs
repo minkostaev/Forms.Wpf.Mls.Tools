@@ -18,9 +18,9 @@ public partial class Requests : UserControl
         };
 
         cbMethod.DataSource = methods;
+        var method = (RequestMethod)cbMethod.SelectedValue!;
         cbMethod.SelectedIndexChanged += delegate
         {
-            var method = (RequestMethod)cbMethod.SelectedValue!;
             switch (method)
             {
                 case RequestMethod.GET:
@@ -49,7 +49,7 @@ public partial class Requests : UserControl
         {
             lblResult.Text = "...";
             var requestManager = new RequestManager();
-            var response = await requestManager.SendRequest(txtUrl.Text, (RequestMethod)cbMethod.SelectedValue, txtInBody.Text);
+            var response = await requestManager.SendRequest(txtUrl.Text, method, txtInBody.Text);
             txtOutResult.Text = response.Content;
             lblResult.Text = $"Response Code: {response.Name} ({response.Code}).";
         };

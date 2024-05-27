@@ -4,6 +4,7 @@ using System.Globalization;
 
 public class Culture
 {
+    public Culture() { }
     public Culture(bool initialize = false)
     {
         try

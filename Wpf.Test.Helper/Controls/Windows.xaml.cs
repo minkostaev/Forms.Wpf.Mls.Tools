@@ -3,9 +3,7 @@
 using Forms.Wpf.Mls.Tools.ControlsWf;
 using Forms.Wpf.Mls.Tools.Models;
 using Forms.Wpf.Mls.Tools.Services;
-using System.Configuration;
 using System.Windows.Controls;
-using System.Xml.Linq;
 using Wpf.Test.Helper.Models;
 
 public partial class Windows : UserControl
@@ -86,9 +84,10 @@ public partial class Windows : UserControl
         #endregion
 
         // Startup Shortcut
-        chBxWindowsStartup.IsChecked = Shortcuts.IsAppInpStartup;
-        chBxWindowsStartup.Checked += delegate { Shortcuts.AddAppStartupShortcut(); };
-        chBxWindowsStartup.Unchecked += delegate { Shortcuts.RemoveAppStartupShortcut(); };
+        var startupShortcut = new StartupShortcut();
+        chBxWindowsStartup.IsChecked = startupShortcut.IsAppInStartup;
+        chBxWindowsStartup.Checked += delegate { startupShortcut.Add(); };
+        chBxWindowsStartup.Unchecked += delegate { startupShortcut.Remove(); };
 
     }
 

@@ -59,16 +59,17 @@ public partial class Windows : UserControl
         #endregion
 
         // Startup Shortcut
-        chBxWindowsStartup.Checked = Shortcuts.IsAppInpStartup;
+        var startupShortcut = new StartupShortcut();
+        chBxWindowsStartup.Checked = startupShortcut.IsAppInStartup;
         chBxWindowsStartup.CheckedChanged += delegate
         {
             if (chBxWindowsStartup.Checked)
             {
-                Shortcuts.AddAppStartupShortcut();
+                startupShortcut.Add();
             }
             else
             {
-                Shortcuts.RemoveAppStartupShortcut();
+                startupShortcut.Remove();
             }
         };
 

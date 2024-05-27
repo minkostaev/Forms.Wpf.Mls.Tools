@@ -2,6 +2,7 @@
 
 public class Client
 {
+    public Client() { }
     public Client(bool initialize = false)
     {
         if (initialize)
