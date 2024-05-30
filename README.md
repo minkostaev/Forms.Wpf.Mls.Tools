@@ -23,7 +23,7 @@ This library will help your **Win Forms** and **WPF** apps with usefull tools (s
 
 - ## JsonConvert - *Json to object and object to json*
 
-- ## Shortcut - *Method for creating shortcut*
+- ## WindowsShortcut - *Method for creating shortcut*
 
 - ## StartupShortcut - *Methods for add shortcut to users startup folder*
 

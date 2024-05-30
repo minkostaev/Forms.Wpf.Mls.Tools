@@ -1,4 +1,6 @@
-﻿namespace Forms.Wpf.Mls.Tools.Models.TheMachine;
+﻿using System.Text.Json.Serialization;
+
+namespace Forms.Wpf.Mls.Tools.Models.TheMachine;
 
 public class Machine
 {
@@ -9,4 +11,9 @@ public class Machine
     public Processor? Processor { get; set; }
     public List<Network>? Networks { get; set; }
     public Dictionary<string, string?>? Variables { get; set; }
+}
+public class MachineDb : Machine
+{
+    [JsonPropertyName("_id")]
+    public string? Id { get; set; }
 }

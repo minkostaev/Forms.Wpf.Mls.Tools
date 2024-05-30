@@ -4,7 +4,7 @@
 using IWshRuntimeLibrary;
 using System.IO;
 
-public static class Shortcut
+public static class WindowsShortcut
 {
     public static void Create(string? exePath, string? shortcutPath, string? shortcutComment = "")
     {

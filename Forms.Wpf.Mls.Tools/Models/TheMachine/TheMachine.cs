@@ -8,6 +8,7 @@ using System.Text.Json;
 
 public class TheMachine : Machine
 {
+    public TheMachine() { }
     public TheMachine(bool network = true, bool variables = true)
     {
         Client = new Client(true);

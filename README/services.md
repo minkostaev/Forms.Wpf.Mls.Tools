@@ -37,7 +37,7 @@ prsn = JsonConvert.JsonStringToObject(json, prsn) as Person;
 
 Plus: Methods that deserialize **ANY** Json to Dictionary<string, object> (supported types: list, string, int, decimal and bool)
 
-- ## Shortcut - *Method for creating shortcut*
+- ## WindowsShortcut - *Method for creating shortcut*
 
 Easy to create shortcut with one line.
 

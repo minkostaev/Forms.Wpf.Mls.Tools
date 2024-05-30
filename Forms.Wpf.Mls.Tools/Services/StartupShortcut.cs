@@ -22,7 +22,7 @@ public class StartupShortcut
     {
         if (!IsAppInStartup)
         {
-            Shortcut.Create(ExePath, LinkPath, Path.GetFileNameWithoutExtension(ExePath));
+            WindowsShortcut.Create(ExePath, LinkPath, Path.GetFileNameWithoutExtension(ExePath));
         }
     }
     public void Remove()
