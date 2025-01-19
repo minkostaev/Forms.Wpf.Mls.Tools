@@ -63,17 +63,17 @@ public class SystemTray//NotifyIcon
         }
     }
 
-    // 
+    
     private NotifyIcon systemIcon { get; set; }
     private bool iconStateBeforeNotification { get; set; }
     private ContextMenuStrip DefaultContextMenu(object windowOrForm)
     {
         Window? window = null;
         Form? form = null;
-        if (windowOrForm is Window)
-            window = windowOrForm as Window;
-        if (windowOrForm is Form)
-            form = windowOrForm as Form;
+        if (windowOrForm is Window win)
+            window = win;
+        if (windowOrForm is Form frm)
+            form = frm;
 
         var contextMenuDefault = new ContextMenuStrip();
 
@@ -102,10 +102,10 @@ public class SystemTray//NotifyIcon
     {
         Window? window = null;
         Form? form = null;
-        if (windowOrForm is Window)
-            window = windowOrForm as Window;
-        if (windowOrForm is Form)
-            form = windowOrForm as Form;
+        if (windowOrForm is Window win)
+            window = win;
+        if (windowOrForm is Form frm)
+            form = frm;
 
         systemIcon.MouseDown += (s, e) =>
         {

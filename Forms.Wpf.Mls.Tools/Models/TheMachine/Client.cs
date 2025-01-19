@@ -2,16 +2,21 @@
 
 public class Client
 {
-    public Client() { }
-    public Client(bool initialize = false)
+    public Client() { Init(true); }
+    public Client(bool initialize) { Init(initialize); }
+    private void Init(bool initialize = false)
     {
         if (initialize)
         {
-            User = Environment.UserName;
-            Machine = Environment.MachineName;
-            Domain = Environment.UserDomainName;
-            //CurrentDirectory = Environment.CurrentDirectory;
-            Path = Environment.ProcessPath;//CommandLine
+            try
+            {
+                User = Environment.UserName;
+                Machine = Environment.MachineName;
+                Domain = Environment.UserDomainName;
+                Path = Environment.ProcessPath;//CommandLine
+                ///CurrentDirectory = Environment.CurrentDirectory;
+            }
+            catch (Exception ex) { User = ex.Message; }
         }
     }
 

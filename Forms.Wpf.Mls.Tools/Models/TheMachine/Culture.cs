@@ -4,19 +4,20 @@ using System.Globalization;
 
 public class Culture
 {
-    public Culture() { }
-    public Culture(bool initialize = false)
+    public Culture() { Init(true); }
+    public Culture(bool initialize) { Init(initialize); }
+    private void Init(bool initialize = false)
     {
-        try
+        if (initialize)
         {
-            if (initialize)
+            try
             {
                 Name = CultureInfo.CurrentCulture.Name;
                 Description = CultureInfo.CurrentCulture.EnglishName;
                 Separator = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
             }
+            catch (Exception ex) { Description = ex.Message; }
         }
-        catch (Exception) { }
     }
 
     public string? Name { get; set; }

@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿namespace Forms.Wpf.Mls.Tools.Models.TheMachine;
 
-namespace Forms.Wpf.Mls.Tools.Models.TheMachine;
+using System.Text.Json.Serialization;
 
 public class Machine
 {
