@@ -1,6 +1,7 @@
 ﻿namespace Forms.Wpf.Mls.Tools.Services;
 
 using System.IO;
+using System.Reflection;
 
 public static class SpecialFolders
 {
@@ -189,7 +190,7 @@ public static class SpecialFolders
     /// C:\Users\username\Favorites
     /// </summary>
     /// <returns></returns>
-    public static string Favorites()//bool isPublic = false)
+    public static string Favorites(bool isPublic = false)
     {
         //if (isPublic)
         //    return Environment.GetFolderPath(Environment.SpecialFolder.Favorites);
@@ -200,7 +201,7 @@ public static class SpecialFolders
     /// C:\Users\username\Downloads
     /// </summary>
     /// <returns></returns>
-    public static string Download()
+    public static string Download(bool isPublic = false)
     {// to do improve
         return Path.Combine(UserProfile, "Downloads");
     }
@@ -265,4 +266,65 @@ public static class SpecialFolders
     ///Environment.SpecialFolder.LocalizedResources
     ///Environment.SpecialFolder.CommonOemLinks Original Equipment Manufacturers
     ///Environment.SpecialFolder.CDBurning Staging area for CD/DVD burning
+
+    /// <summary>
+    /// Convert name of special folder to full path ex: "Windows" to "C:\Windows"
+    /// </summary>
+    /// <param name="nameOrPath"></param>
+    public static string NameToPath(string nameOrPath)
+    {
+        if (string.IsNullOrWhiteSpace(nameOrPath))
+            return string.Empty;
+
+        string folderName = nameOrPath.Split("\\").FirstOrDefault()!.ToLower();
+        string restOfPath = nameOrPath[folderName.Length..];
+        string specialPath = string.Empty;
+
+        Type type = typeof(SpecialFolders);
+        PropertyInfo[] properties = type.GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        MethodInfo[] methods = type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        foreach (PropertyInfo prop in properties)
+        {
+            var name = prop.Name.ToLower();
+            if (name == folderName)
+            {
+                specialPath = prop.GetValue(null)!.ToString()!;
+                return specialPath + restOfPath;
+            }
+        }
+        // Excludes get_/set_/op_/etc.
+        var realMethods = methods.Where(m => !m.IsSpecialName).ToArray();
+        foreach (MethodInfo method in realMethods)
+        {
+            var name = method.Name.ToLower();
+            if (name == "resolvepath")
+                continue;
+            List<string> names = [name, name + "x86", name + "public"];
+            if (names.Contains(folderName))
+            {
+                if (folderName.EndsWith("public"))
+                {
+                    if (folderName == "desktoppublic")
+                    {
+                        specialPath = method.Invoke(null, [true, false])!.ToString()!;
+                        break;
+                    }
+                    specialPath = method.Invoke(null, [true])!.ToString()!;
+                    break;
+                }
+                specialPath = folderName switch
+                {
+                    "windowssystem" => method.Invoke(null, [false, false])!.ToString()!,
+                    "windowssystemx86" => method.Invoke(null, [true, false])!.ToString()!,
+                    "desktop" => method.Invoke(null, [false, false])!.ToString()!,
+                    "programfilesx86" => method.Invoke(null, [true])!.ToString()!,
+                    "programfilescommonx86" => method.Invoke(null, [true])!.ToString()!,
+                    _ => method.Invoke(null, [false])!.ToString()!
+                };
+                break;
+            }
+        }
+        return specialPath + restOfPath;
+    }
+
 }

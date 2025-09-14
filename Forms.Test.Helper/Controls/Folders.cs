@@ -18,7 +18,7 @@ public partial class Folders : UserControl
         tbUser.Text = Environment.UserName;
         tbLocal.Text = SpecialFolders.LocalAppData;
 
-        tbAppName.Text = AssemblyProperties.AssemblyName;
+        tbAppName.Text = AssemblyProperties.ExeName;
         tbAppVersion.Text = AssemblyProperties.AppVersion;
 
         tbDllName.Text = AssemblyProperties.DllName;
