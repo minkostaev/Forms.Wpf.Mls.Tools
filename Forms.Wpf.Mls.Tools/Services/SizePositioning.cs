@@ -69,10 +69,10 @@ public static class SizePositioning
         #endregion
 
         #region Reset button in taskbar
-        ThumbButtonInfo btnInfo = new ThumbButtonInfo();
+        ThumbButtonInfo btnInfo = new();
         //btnInfo.Command = new RelayCommand(DoSomething);
         //btnInfo.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/MyButtonIcon.png"));
-        var appIcon = AssemblyProperties.AssemblyIcon;
+        var appIcon = AssemblyProperties.ExeIcon;
         if (appIcon != null && resetIcon == null)
         {
             ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(

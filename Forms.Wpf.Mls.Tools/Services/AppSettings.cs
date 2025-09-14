@@ -28,13 +28,13 @@ public static class AppSettings
 
     public static string JsonPath(WindowsLocation location, string fileName)
     {
-        string appNmae = AssemblyProperties.AssemblyName ?? "appNmae";
+        string appNmae = AssemblyProperties.ExeName ?? "appNmae";
         string? winAppLocation = location switch
         {
-            WindowsLocation.OwnApp => AssemblyProperties.ExeDir,
-            WindowsLocation.ProgramData => SpecialFolders.CommonAppData,
+            WindowsLocation.OwnApp => SpecialFolders.CurrentDirectory,
+            WindowsLocation.ProgramData => SpecialFolders.ProgramData,
             WindowsLocation.LocalData => SpecialFolders.LocalAppData,
-            WindowsLocation.RoamingData => SpecialFolders.RoamingFolder,
+            WindowsLocation.RoamingData => SpecialFolders.RoamingAppData,
             _ => SpecialFolders.LocalAppData,
         };
         string dir = Path.Combine(winAppLocation ?? SpecialFolders.LocalAppData, appNmae);

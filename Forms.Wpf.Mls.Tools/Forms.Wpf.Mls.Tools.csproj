@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.14.0</AssemblyVersion>
-    <FileVersion>1.0.14.0</FileVersion>
-    <VersionPrefix>1.0.14</VersionPrefix>
+    <AssemblyVersion>1.0.15.0</AssemblyVersion>
+    <FileVersion>1.0.15.0</FileVersion>
+    <VersionPrefix>1.0.15</VersionPrefix>
   </PropertyGroup>
   
   <PropertyGroup><!--NuGet Package configuration for nuget.org-->

@@ -5,28 +5,21 @@ using System.Reflection;
 
 public static class AssemblyProperties
 {
-    private static Assembly? AssemblyEntry => Assembly.GetEntryAssembly();//exe
-    private static Assembly? AssemblyExecuting => Assembly.GetExecutingAssembly();//dll
+    private static Assembly? Exe => Assembly.GetEntryAssembly();
+    private static Assembly? Dll => Assembly.GetExecutingAssembly();
 
-    /// <summary>
-    /// Exe name
-    /// </summary>
-    public static string? AssemblyName => AssemblyEntry?.GetName().Name;
-    public static string? DllName => AssemblyExecuting?.GetName().Name;
+    // public
 
-    public static string? ExePath => AssemblyExecuting?.Location;
-    public static string? ExeDir => Path.GetDirectoryName(ExePath);
+    public static string? ExeName => Exe?.GetName().Name;
+    public static string? DllName => Dll?.GetName().Name;
 
-    /// <summary>
-    /// Exe icon
-    /// </summary>
-    public static Icon? AssemblyIcon => 
-        (AssemblyEntry != null) ? Icon.ExtractAssociatedIcon(AssemblyEntry.Location) : null;
+    public static string? ExePath => Exe?.Location;
+    public static string? DllPath => Dll?.Location;
 
-    
+    public static string? AppVersion => Exe?.GetName()?.Version?.ToString();
+    public static string? DllVersion => Dll?.GetName()?.Version?.ToString();
 
-    public static string? AppVersion => AssemblyEntry?.GetName()?.Version?.ToString();
-    public static string? DllVersion => AssemblyExecuting?.GetName()?.Version?.ToString();
+    public static Icon? ExeIcon => (Exe != null) ? Icon.ExtractAssociatedIcon(Exe.Location) : null;
 
 }
 // to do add more properties

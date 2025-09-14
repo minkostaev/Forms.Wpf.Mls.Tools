@@ -23,7 +23,7 @@ public partial class Folders : UserControl
         tbAppVersion.Text = AssemblyProperties.AppVersion;
         tbDllVersion.Text = AssemblyProperties.DllVersion;
 
-        tbAppName.Text = AssemblyProperties.AssemblyName;
+        tbAppName.Text = AssemblyProperties.ExeName;
         tbDllName.Text = AssemblyProperties.DllName;
 
     }

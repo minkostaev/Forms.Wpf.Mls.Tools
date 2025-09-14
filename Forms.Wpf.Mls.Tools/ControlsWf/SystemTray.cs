@@ -12,8 +12,8 @@ public class SystemTray//NotifyIcon
     {
         systemIcon = new NotifyIcon
         {
-            Icon = AssemblyProperties.AssemblyIcon,
-            Text = AssemblyProperties.AssemblyName,
+            Icon = AssemblyProperties.ExeIcon,
+            Text = AssemblyProperties.ExeName,
             Visible = true,
             ContextMenuStrip = DefaultContextMenu(form),
         };
@@ -39,8 +39,8 @@ public class SystemTray//NotifyIcon
     {
         systemIcon = new NotifyIcon
         {
-            Icon = AssemblyProperties.AssemblyIcon,
-            Text = AssemblyProperties.AssemblyName,
+            Icon = AssemblyProperties.ExeIcon,
+            Text = AssemblyProperties.ExeName,
             Visible = true,
             ContextMenuStrip = DefaultContextMenu(window),
         };
